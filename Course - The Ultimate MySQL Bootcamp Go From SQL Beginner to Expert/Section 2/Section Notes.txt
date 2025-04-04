@@ -1,0 +1,26 @@
+Q. What is a Database?
+-> A Database is a collection of data that is stored electronically. The data that a database can store can be words, numbers, images, videos and even files.
+OR A Database is a collection of data and is equipped with a method for accessing and manipulating that data.
+OR A structured set of computerized data with an accessible interface.
+
+Q. What is a Database Management System?
+-> A database management system works as an interface between the user and the database. Using a DBMS's interface we can write commands and then run those commands to get the output.
+
+Note - Often times, the terms Database is used to represent the Database and Database Management System combined.
+       Examples of Database Management Systems - MySQL, PostgreSQL, Oracle, SQLite.
+
+Q. What is the difference between MySQL and SQL?
+-> SQL stands for Structured Query Language. SQL is the language we use to "talk" to a database i.e., we can write commands using the SQL in the interface provided by the DBMS to manipulate
+   the data stored inside a database.
+
+   A quick perview:
+   Find all users that are 18 years and older.
+       SELECT *
+       FROM Users
+       WHERE Age >= 18;
+
+Working with MySQL (DBMS) is primarily writing SQL (programming language).
+
+Main Takeaways:
+1. Once we have learned the SQL language, its pretty easy to switch between different DBMS that use SQL.
+2. What makes DBMS unique are the features they offer, not the language.
