@@ -1,0 +1,22 @@
+Problem Statements and SQL queries that offer the solution from them.
+Our Database has 8 tables. They are Customers, Categories, Employees, OrderDetails, Orders, Products, Shippers and Suppliers.
+
+1. Extract all the information (i.e., every column) of the customers that live in the country "UK".
+-> SELECT *
+   FROM Customers
+   WHERE Country = 'UK'
+-- Here, table = Customers and column = Country.
+
+2. Extract all the product information and order the information by decreasing price.
+-> SELECT *
+   FROM Products
+   ORDER BY Price DESC;
+
+3. Extract the names of customers and the number of orders put in by them, also make sure to sort the extracted information by the decreasing number of orders.
+   OR Find every customer that has made an order, their corresponding number of orders and sort the extracted information by the number of orders column in descending order.
+-> SELECT customerName, COUNT (*) AS 'Number of Orders'
+   FROM customers
+   INNER JOIN orders
+           ON orders.CustomerID = customers.CustomerID
+   GROUP BY customer.CustomerID
+   ORDER BY 'Number of orders' DESC;
