@@ -24,3 +24,5 @@ Working with MySQL (DBMS) is primarily writing SQL (programming language).
 Main Takeaways:
 1. Once we have learned the SQL language, its pretty easy to switch between different DBMS that use SQL.
 2. What makes DBMS unique are the features they offer, not the language with which they operate since almost all the popular ones use SQL.
+
+MySQL directory path - C:\ProgramData\MySQL\MySQL Server 8.4\
