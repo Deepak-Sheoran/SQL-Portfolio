@@ -1,0 +1,19 @@
+CREATE DATABASE IF NOT EXISTS pet_shop;
+SHOW DATABASES;
+USE pet_shop;
+SELECT DATABASE();
+CREATE TABLE IF NOT EXISTS cats
+	(
+		Name VARCHAR(20),
+        Age TINYINT
+    );
+CREATE TABLE IF NOT EXISTS dogs
+	(
+		Name VARCHAR(20),
+        Breed VARCHAR(25),
+        Age TINYINT
+    );
+SHOW TABLES;
+SHOW COLUMNS
+FROM cats;
+DESC dogs;

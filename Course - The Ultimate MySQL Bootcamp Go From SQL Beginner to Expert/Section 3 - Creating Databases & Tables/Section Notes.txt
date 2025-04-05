@@ -1,20 +1,71 @@
 Important Definitions:
-Table - Tables are a structured collection of related data that are stored within a database.
+
+Tables - Tables are a structured collection of related data that are stored within a database.
 OR Tables are a collection of related data held in a structured format within a database.
 
+Data Type = Using data types one can control the type of data that can entered inside a column.
 
+____________________________________________________________________________________________________________________________________________________________________________________________
 Notes:
+
 -> After setting up a database server the first step would be to accessing that server using a user profile through an interface like a simple shell or an IDLE like My SQL Workbench.
 -> Once we have the access through a terminal we can use SQL syntax to write the commands to create, update or even delete the databases stored inside a server.
 -> While choosing the name of a new database we should be careful to not put spaces (even though we can) since that may cause problem, its best practice to put underscore in place of space.
 -> A database is just a bunch of tables, in a relational database, at least.
 -> Tables are what holds the data while also describing the format and shape of the data (via columns) and then they hold collection of data i.e., rows, that follows that shape.
+-> Commenting in SQL - We can comment in SQL using the -- (double dash), to comment multiple lines of code we use Ctrl + /
+____________________________________________________________________________________________________________________________________________________________________________________________
+-> Numeric Data Types:
+   - TINYINT - 1Byte, -128 to 127
+   - SMALLINT - 2Bytes, -32768 to 32767
+   - MEDIUMINT - 3Bytes
+   - INT or INTEGER - 4Bytes
+   - BIGINT - 8Bytes
+   - DECIMAL(precision, scale) or NUMERIC(precision, scale)
+   - FLOAT
+   - DOUBLE
+   - BIT
 
+-> String Data Types:
+   - CHAR(len)
+   - VARCHAR(len) - A variable length string
+   - BINARY
+   - VARBINARY
+   - BLOB
+   - TINYBLOB
+   - MEDIUMBLOB
+   - LONGBLOB
+   - TEXT
+   - TINYTEXT
+   - MEDIUMTEXT
+   - LONGTEXT
+   - ENUM
 
+-> Date Data Types:
+   - DATE - 'YYYY-MM-DD'
+   - TIME - 'HH:MM:SS'
+   - DATETIME - 'YYYY-MM-DD HH:MM:SS'
+   - TIMESTAMP - 'YYYY-MM-DD HH:MM:SS'
+   - YEAR
+____________________________________________________________________________________________________________________________________________________________________________________________
+-> Syntax for creating tables:
+   CREATE TABLE <table_name>
+      (
+         <column1_name> data_type,
+         <column2_name> data_type
+      );
+
+-> Once we have create a table within a database, the SQL commands and statements that allow us to verify whether or not our code worked or not are as follows:
+   1. SHOW TABLES;
+   2. DESC <table_name>; --or DESCRIBE <table_name>;
+   3. SHOW COLUMNS FROM <table_name>;
+   4. SELECT * FROM <table_name>;
+
+-> Syntax for deleting tables permanently:
+   DROP TABLE IF EXISTS <table_name>;
+____________________________________________________________________________________________________________________________________________________________________________________________
 SQL Queries:
-
 Database related queries:
-
 -> SHOW DATABASES; --Presents names of all the databases that exists within the server
 
 -> CREATE DATABASE IF NOT EXISTS <database_name>; --Creates a new and empty database only if a database with the name we are trying to create doesn't already exists
@@ -25,3 +76,17 @@ Database related queries:
 
 -> DROP DATABASE IF EXISTS <database_name>; --Deletes a database from the server if it exists, doesn't throw an error if it doesn't exists.
 
+____________________________________________________________________________________________________________________________________________________________________________________________
+Short Table Activity:
+Problem Statement - Draw a Tweets table, at a minimum the column must include:
+- A username (max 15 characters)
+- The tweet content (max 140 characters)
+- Number of favourites
+
+Solution query:
+CREATE TABLE tweets
+	(
+		Username VARCHAR(15),
+		Tweet_content VARCHAR(140),
+		Number_of_Favourites SMALLINT
+	);
