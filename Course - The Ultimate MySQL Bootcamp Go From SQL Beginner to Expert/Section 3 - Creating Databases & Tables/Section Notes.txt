@@ -1,10 +1,14 @@
 Important Definitions:
-
+Table - Tables are a structured collection of related data that are stored within a database.
+OR Tables are a collection of related data held in a structured format within a database.
 
 
 Notes:
 -> After setting up a database server the first step would be to accessing that server using a user profile through an interface like a simple shell or an IDLE like My SQL Workbench.
 -> Once we have the access through a terminal we can use SQL syntax to write the commands to create, update or even delete the databases stored inside a server.
+-> While choosing the name of a new database we should be careful to not put spaces (even though we can) since that may cause problem, its best practice to put underscore in place of space.
+-> A database is just a bunch of tables, in a relational database, at least.
+-> Tables are what holds the data while also describing the format and shape of the data (via columns) and then they hold collection of data i.e., rows, that follows that shape.
 
 
 SQL Queries:
@@ -13,7 +17,7 @@ Database related queries:
 
 -> SHOW DATABASES; --Presents names of all the databases that exists within the server
 
--> CREATE DATABASE IF NOT EXISTS <database_name>; --Creates a new database if a database with the name we are trying to create doesn't exists
+-> CREATE DATABASE IF NOT EXISTS <database_name>; --Creates a new and empty database only if a database with the name we are trying to create doesn't already exists
 
 -> USE <database_name>; --Selects a database for use/access/manipulation.
 
