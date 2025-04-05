@@ -26,3 +26,4 @@ Main Takeaways:
 2. What makes DBMS unique are the features they offer, not the language with which they operate since almost all the popular ones use SQL.
 
 MySQL directory path - C:\ProgramData\MySQL\MySQL Server 8.4\
+To use MySQL using the command prompt -> mysql -u root -p
