@@ -1,7 +1,7 @@
 USE pet_shop;
 
 -- NOT NULL constraint
-CREATE TABLE cats2
+CREATE TABLE IF NOT EXISTS cats2
 	(
 		Name VARCHAR(20) NOT NULL,
         Age TINYINT NOT NULL
@@ -9,3 +9,21 @@ CREATE TABLE cats2
 
 SHOW COLUMNS
 FROM cats2;
+
+-- DEFAULT Constraint
+CREATE TABLE IF NOT EXISTS cats3
+	(
+		Name VARCHAR(20) DEFAULT 'Mystery',
+        Age TINYINT UNSIGNED DEFAULT 99
+    );
+
+DESCRIBE cats3;
+INSERT INTO cats3(Age)
+VALUE(2);
+INSERT INTO cats3() VALUE();
+SELECT *
+FROM cats3;
+
+-- 
+
+SHOW TABLES;

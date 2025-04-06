@@ -1,0 +1,53 @@
+These notes will introduce a new concept called constraints that help us further control the flow of data inside a column just like data types did. We can apply constraints to the columns 
+either while creating a table or while altering it.
+
+Constraints:
+Syntax for applying constraints:
+column_name data_type constraint
+
+- NOT NULL - Applying this constraint to a column makes it so that when inserting data into that column we must always provide a value otherwise we get an error. If the constraint is not 
+  applied then we have the choice to skill inserting any value into the column and the term NULL will be sitting in the empty space.
+
+- UNSIGNED - Increase the range of number that numerical data types can accept at the cost of not being able to insert negative values that were previously allowed.
+
+- DEFAULT - Using this constraint we can assign default values to a column in case we decide to not insert any value in it so that instead of getting assigned the NULL value it gets 
+  assigned the value we provide. Note - The default value that is assigned by default is the NULL value😂.
+
+- PRIMARY KEY - PRIMARY KEY is a unique identifier, it's a column or a combination of columns that can be used to uniquely identify each row in a table.
+  Syntax:
+  1. column_name data_type PRIMARY KEY
+  2. PRIMARY KEY(column_name)
+  3. PRIMARY KEY(column1_name, column2_name)
+  
+  Note: - The column or the combination of columns that's being assigned the role of primary key won't allow duplicate values to be inserted inside it so all the values must be unique.
+        - The column with the role of Primary Key will also won't store NULL values even without the constraint of NOT NULL so applying it will be redundant alongside the PRIMARY KEY 
+          constraint.
+
+- FOREIGN KEY - 
+
+- AUTO_INCREMENT - 
+
+- UNIQUE - 
+
+___________________________________________________________________________________________________________________________________________________________________________________________
+Notes:
+1. We can apply constraints to columns while creating a table using the following syntax:
+   CREATE TABLE <table_name>
+       (
+           column_name data_type constraint
+       );
+
+2. NULL means that the value is unknown, NULL does not mean zero since zero(0) itself is a numerical value.
+
+3. Ways to insert NULL values in a table:
+   - While inserting data in a table we can skip including a column name and then if we insert a row of data, the column we excluded will have NULL value in that row.
+   - We can also insert a complete empty row using this statement -> INSERT INTO <table_name>() VALUE();
+   - Manually inserting NULL value -> INSERT INTO <table_name>() VALUE(NULL, NULL);
+
+4. Applying both DEFAULT and NOT NULL constraint is not redundant because the NOT NULL constraint won't allow a NULL value to be inserted even manually if we try to do so.
+   We can still manually set things to be NULL if we don't specify NOT NULL like:
+   INSERT INTO cats3(Name, Age)
+   VALUE(NULL, 3);
+
+___________________________________________________________________________________________________________________________________________________________________________________________
+SQL Query:
