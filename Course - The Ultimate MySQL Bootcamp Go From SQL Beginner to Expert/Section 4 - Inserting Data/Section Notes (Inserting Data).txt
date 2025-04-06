@@ -66,6 +66,3 @@ SQL Queries:
        ('Linda', 'Belcher', 45),
        ('Phillip', 'Frond', 38),
        ('Calvin', 'Fischoeder', 70);
-
-
-
