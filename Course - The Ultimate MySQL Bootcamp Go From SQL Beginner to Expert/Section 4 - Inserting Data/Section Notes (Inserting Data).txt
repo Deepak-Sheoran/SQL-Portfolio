@@ -1,0 +1,71 @@
+These notes will be about how we can insert data into the tables that we now know how to create.
+____________________________________________________________________________________________________________________________________________________________________________________________
+Notes:
+1. Inserting Data into the Tables.
+   We can insert data into our table using the insert command which is as follows:
+   - For inserting a single row of data
+     INSERT INTO <table_name>(column1_name, column2_name)
+     VALUE(v1, v2);
+     Here v1 and v2 should belong to column1_name and column2_name respectively and not vice versa.
+     
+   - In case we are inserting data for every column within the table
+     INSERT INTO <table_name>
+     VALUE(v1, v2);
+     Here the table must only have two columns and the inserted values must follow the structure of the table set during its creation.
+     
+   - For inserting multiple rows of data
+     INSERT INTO <table_name>(column1_name, column2_name)
+     VALUES
+           (v1, v2),
+           (v3, v4),
+           (v5, v6);
+     Here v1, v3, v5 and v2, v4, v6 should belong to column1_name and column2_name respectively and not vice versa.
+     Same as before, we can skip writing the column names if we are inserting values for each column and follow the structure of the table.
+
+2. One way to not adhere to the structure of the table while inserting rows of data is by changing the order of the columns into the INSERT statement but the values we insert must follow 
+   the new order and even through we insert the data in different order, the data will still be stored according to the original structure because the structure itself won't be changed 
+   because of the way we are inserting the data.
+
+3. To check whether or not the rows of data we inserted previously actually got stored inside the table we use the following statement:
+   SELECT *
+   FROM <table_name>;
+    
+____________________________________________________________________________________________________________________________________________________________________________________________
+SQL Queries:
+1.Create a people table
+  - First_name - 20 char limit
+  - Last_name  - 20 char limit
+  - Age
+-> CREATE TABLE people
+       (
+           First_Name VARCHAR(20),
+           Last_Name VARCHAR(20),
+           Age TINYINT
+       );
+
+2. INSERT the details of a person in the people table
+   First Name - Tina
+   Last Name  - Belcher
+   Age        - 13
+-> INSERT INTO people
+   VALUE('Tina', 'Belcher', 13);
+
+3. INSERT the details of a person in the people table
+   First Name - Bob
+   Last Name  - Belcher
+   Age        - 42
+-> INSERT INTO people
+   VALUE('Bob', 'Belcher', 42);
+
+4. INSERT the details of multiple people in the people table
+   First Name - Linda   | First Name - Phillip | First Name - Calvin
+   Last Name  - Belcher | Last Name  - Frond   | Last Name  - Fischoeder
+   Age        - 45      | Age        - 38      | Age        - 70
+-> INSERT INTO people
+   VALUES
+       ('Linda', 'Belcher', 45),
+       ('Phillip', 'Frond', 38),
+       ('Calvin', 'Fischoeder', 70);
+
+
+
