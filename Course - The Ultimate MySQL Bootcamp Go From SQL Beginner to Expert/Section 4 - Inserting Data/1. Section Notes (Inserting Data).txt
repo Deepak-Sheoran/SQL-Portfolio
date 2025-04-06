@@ -32,7 +32,7 @@ Notes:
 
 4. Quotes in MySQL:
    When inserting textual data we have to enclose it within quotes and the preferred quotes for that are the single quotes. We can insert a single quote within singe quotes using the
-   escape key i.e., the forward slash (/) like 'text/'s text'. We can also insert double quotes within the enclosing single quotes without any problems.
+   escape key i.e., the back slash (\) like 'text\'s text'. We can also insert double quotes within the enclosing single quotes without any problems.
     
 ____________________________________________________________________________________________________________________________________________________________________________________________
 SQL Queries:
