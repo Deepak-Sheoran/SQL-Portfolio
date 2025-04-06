@@ -13,6 +13,18 @@ VALUES
 	('Blue Steele', 5),
     ('Jenkins', 7);
 
+-- Inserting data with switched order
+INSERT INTO cats(Age, Name)
+VALUE(12, 'Victoria');
+
+INSERT INTO cats(Age, Name)
+VALUES
+	(2,  'Beth'),
+    (8,  'Linus'),
+    (10, 'Charlie'),
+    (3,  'Sadie'),
+    (1,  'Lazy Bear');
+
 -- Statement for checking whether or not the row we inserted actually got stored inside the table
 SELECT *
 FROM cats;
