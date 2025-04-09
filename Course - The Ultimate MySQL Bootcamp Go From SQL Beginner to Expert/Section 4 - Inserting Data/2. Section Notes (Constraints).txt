@@ -52,3 +52,22 @@ Notes:
 
 ___________________________________________________________________________________________________________________________________________________________________________________________
 SQL Query:
+Problem Statement - Define an Employees table, with the following fields:
+- id - number(automatically increments) and primary key
+- last_name - text, mandatory
+- first_name - text, mandatory
+- middle_name - text, mandatory
+- age - number, mandatory
+- current_status - text, mandatory, defaults to 'employed'
+
+Solution Query:
+   CREATE TABLE Employees
+       (
+           Id SMALLINT UNSIGNED AUTO_INCREMENT,
+           First_name VARCHAR(20) NOT NULL,
+           Middle_name VARCHAR(20) NOT NULL,
+           Last_name VARCHAR(20) NOT NULL,
+           Age TINYINT UNSIGNED NOT NULL,
+           Current_status VARCHAR(20) NOT NULL DEFAULT 'Employed',
+           PRIMARY KEY(Id)
+       );
