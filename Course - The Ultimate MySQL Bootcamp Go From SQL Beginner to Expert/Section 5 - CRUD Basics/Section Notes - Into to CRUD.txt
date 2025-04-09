@@ -1,0 +1,14 @@
+Notes:
+1. CRUD stands for Create Read Update and Delete. CRUD are the four basic action that we should be able to perform to our data.
+   C - Create new rows of data i.e., using INSERT INTO <table_name>() VALUE(); command to create new rows of data in a table.
+   R - Read the existing data using the SELECT column_names FROM <table_name>; command to extract the data and output it on the screen.
+   U - Update the existing data using the UPDATE <table_name> SET <column_name> = VALUE; command to update the existing rows of data in the table.
+   D - DELETE the existing data using the DELETE FROM <table_name>; command to either delete every row or a select few using this command with the WHERE command.
+
+2. The C part of CRUD is pretty straightforward. All we have to keep in mind is the syntax of INSERT INTO command and to make sure that the order in which the VALUE is being inserted match 
+   the original structure of the data. If we don't want to follow that structure we can always the swap the position of the columns but the values will then have to follow that new 
+   structure. Other than that we have to keep an eye of the data type of the values so that they match with the column's assigned data type and other constraints that have been put on the 
+   columns when the table was created.
+
+3. WITH R, U and D we can get quite creative since we have multiple other commands we can use in lieu like WHERE, ORDER BY, GROUP BY etc.
+4. 
