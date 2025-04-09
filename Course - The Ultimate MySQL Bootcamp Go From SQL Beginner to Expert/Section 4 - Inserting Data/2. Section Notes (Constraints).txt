@@ -23,17 +23,12 @@ column_name data_type constraint
         - The column with the role of Primary Key will also won't store NULL values even without the constraint of NOT NULL so applying it will be redundant alongside the PRIMARY KEY 
           constraint.
 
-- FOREIGN KEY - 
-
 - AUTO_INCREMENT - This doesn't actually counts as a standard SQL constraint. It is a feature in SQL that automatically generates unique, sequential values for a column when a new row is 
   inserted into a table. The value usually starts at 1 but to start with an AUTO_INCREMENT value other than 1, set that value with CREATE TABLE or ALTER TABLE, like this:
   ALTER TABLE <table_name> AUTO_INCREMENT = <value>;
   The AUTO_INCREMENT column should be an integer data type.
   Syntax:
   column_name data_type AUTO_INCREMENT -- = <value>; this last part is only needed when we wish to start the sequence from a number other than 1.
-
-
-- UNIQUE - 
 
 ___________________________________________________________________________________________________________________________________________________________________________________________
 Notes:
