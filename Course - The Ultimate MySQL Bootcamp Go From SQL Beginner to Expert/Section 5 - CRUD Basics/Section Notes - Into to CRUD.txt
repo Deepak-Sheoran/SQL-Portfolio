@@ -11,4 +11,7 @@ Notes:
    columns when the table was created.
 
 3. WITH R, U and D we can get quite creative since we have multiple other commands we can use in lieu like WHERE, ORDER BY, GROUP BY etc.
-4. 
+
+SQL Statements:
+- SELECT statement for reading the data stored within a table.
+  
