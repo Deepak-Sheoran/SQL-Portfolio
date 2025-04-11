@@ -14,4 +14,18 @@ Notes:
 
 SQL Statements:
 - SELECT statement for reading the data stored within a table.
-  
+  Syntax -> SELECT <column_names> FROM <table_name>; -- when we put * in place of column_names, it means we want to extract all the columns in the table.
+  If we want to get a subset of columns all we have to do is put their exact names in place of column_names and separate each column name with a comma like the following:
+  SELECT column1_name, column2_name FROM <table_name>;
+  That's that about extracting all or some of the columns but to do so with rows we use the WHERE command.
+
+- WHERE statement for extracting rows of data that meet a certain condition
+  WHERE is a special keyword in SQL, that allows us to narrow down the rows that we are working with. The WHERE command is very useful as it's main objective is to apply condition so that 
+  we only get the rows that meet those conditions and so WHERE is used not only with SELECT statement but also with UPDATE, DELETE and other commands.
+  Syntax:
+  SELECT <column_name>
+  FROM <table_name>
+  WHERE condition; -- condition can be like column_name = (or > or >= or < or <=) some_value
+  Note - There is no need to 'SELECT' the column that's part of the condition under the 'WHERE' statement if there is no need to do so.
+
+- 
