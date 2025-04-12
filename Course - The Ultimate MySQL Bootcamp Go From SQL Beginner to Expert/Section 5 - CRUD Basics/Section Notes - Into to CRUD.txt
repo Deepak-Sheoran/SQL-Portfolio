@@ -19,7 +19,7 @@ SQL Statements:
   SELECT column1_name, column2_name FROM <table_name>;
   That's that about extracting all or some of the columns but to do so with rows we use the WHERE command.
 
-- WHERE statement for extracting rows of data that meet a certain condition
+- WHERE keyword for extracting rows of data that meet a certain condition
   WHERE is a special keyword in SQL, that allows us to narrow down the rows that we are working with. The WHERE command is very useful as it's main objective is to apply condition so that 
   we only get the rows that meet those conditions and so WHERE is used not only with SELECT statement but also with UPDATE, DELETE and other commands.
   Syntax:
@@ -28,4 +28,11 @@ SQL Statements:
   WHERE condition; -- condition can be like column_name = (or > or >= or < or <=) some_value
   Note - There is no need to 'SELECT' the column that's part of the condition under the 'WHERE' statement if there is no need to do so.
 
-- 
+- AS keyword for renaming the column names so that the newer name will be shown when the table gets printed out, it doesn't do in place change just for that single statement. AS is used to 
+  assign aliases to the column names.
+  The main use of AS comes into play 
+  Syntax - SELECT <column_name> AS <alias> FROM <table_name>;
+
+- Update keyword for altering the existing rows inside a table
+  Syntax - UPDATE <table_name> SET <column1_name> = <value1>, <column2_name> = <value2> WHERE condition;
+  If we don't use the WHERE command alongside the UPDATE command then every value will be updates for columns column1_name and column2_name.
