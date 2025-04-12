@@ -13,4 +13,11 @@ FROM cats
 WHERE Age = 4;
 SELECT NAME FROM cats WHERE Age = 4;
 
--- 
+-- AS
+SELECT Cat_Id AS ID
+FROM cats;
+
+-- Update
+UPDATE cats
+SET Age = 14
+WHERE Name = 'Misty';

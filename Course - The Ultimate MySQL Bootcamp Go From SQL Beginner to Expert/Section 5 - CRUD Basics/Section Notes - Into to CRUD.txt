@@ -12,6 +12,9 @@ Notes:
 
 3. WITH R, U and D we can get quite creative since we have multiple other commands we can use in lieu like WHERE, ORDER BY, GROUP BY etc.
 
+4. A good rule of 👍 is to run a select command that uses the same where commands with the conditions that we are using so that the output will be able to tell us what rows we will update 
+   or delete when those commands are run.
+
 SQL Statements:
 - SELECT statement for reading the data stored within a table.
   Syntax -> SELECT <column_names> FROM <table_name>; -- when we put * in place of column_names, it means we want to extract all the columns in the table.
@@ -33,6 +36,8 @@ SQL Statements:
   The main use of AS comes into play 
   Syntax - SELECT <column_name> AS <alias> FROM <table_name>;
 
-- Update keyword for altering the existing rows inside a table
+- UPDATE keyword for altering the existing rows inside a table
   Syntax - UPDATE <table_name> SET <column1_name> = <value1>, <column2_name> = <value2> WHERE condition;
   If we don't use the WHERE command alongside the UPDATE command then every value will be updates for columns column1_name and column2_name.
+
+- DELETE
