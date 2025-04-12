@@ -21,3 +21,8 @@ FROM cats;
 UPDATE cats
 SET Age = 14
 WHERE Name = 'Misty';
+
+-- DELETE
+DELETE
+FROM cats
+WHERE Name = 'Egg';
