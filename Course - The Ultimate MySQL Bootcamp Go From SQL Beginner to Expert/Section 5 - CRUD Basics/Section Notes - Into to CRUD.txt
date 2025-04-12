@@ -40,4 +40,7 @@ SQL Statements:
   Syntax - UPDATE <table_name> SET <column1_name> = <value1>, <column2_name> = <value2> WHERE condition;
   If we don't use the WHERE command alongside the UPDATE command then every value will be updates for columns column1_name and column2_name.
 
-- DELETE
+- DELETE keyword for deleting the rows inside a table
+  Syntax - DELETE FROM <table_name> WHERE condition;
+  Without the where command all the rows will be deleted, columns that have AUTO_INCREMENT applied to them will pick up from where they left off i.e., they won't start back from one.
+  Using the WHERE allows us to pick the rows that we want to delete.
