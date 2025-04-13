@@ -4,6 +4,7 @@ USE shirts_db;
 SELECT DATABASE();
 
 -- CREATE a new table called Shirts that follows the following structure and data:
+-- ------------------------------------------------------------
 -- | Shirt_id |   Article   | Colour | Shirt_size | Last_worn |
 -- ------------------------------------------------------------
 -- |    1     |   T-Shirt   |  White |      S     |     10    |
@@ -14,6 +15,7 @@ SELECT DATABASE();
 -- |    6     |  Polo Shirt |   Red  |      M     |     5     |
 -- |    7     |   Tank Top  |  White |      S     |    200    |
 -- |    8     |   Tank Top  |  Blue  |      M     |     15    |
+-- ------------------------------------------------------------
 
 -- Shirt_id   - Numerical -> Primary key and Auto Increments
 -- Article    - Text
