@@ -3,13 +3,13 @@ USE Book_Store;
 
 CREATE TABLE IF NOT EXISTS Books 
 	(
-		Book_id INT NOT NULL AUTO_INCREMENT,
-		Title VARCHAR(100),
-		Author_fname VARCHAR(100),
-		Author_lname VARCHAR(100),
-		Released_year INT,
-		Stock_quantity INT,
-		Pages INT,
+		Book_id TINYINT UNSIGNED AUTO_INCREMENT,
+		Title VARCHAR(60) NOT NULL DEFAULT 'Not Known',
+		Author_fname VARCHAR(30) NOT NULL DEFAULT 'Joen',
+		Author_lname VARCHAR(30) NOT NULL DEFAULT 'Doe',
+		Released_year MEDIUMINT UNSIGNED NOT NULL DEFAULT 0,
+		Stock_quantity SMALLINT UNSIGNED NOT NULL DEFAULT 0,
+		Pages SMALLINT UNSIGNED NOT NULL DEFAULT 0,
 		PRIMARY KEY(Book_id)
 	);
 
