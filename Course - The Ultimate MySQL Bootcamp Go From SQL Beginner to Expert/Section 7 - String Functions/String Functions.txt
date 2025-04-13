@@ -1,0 +1,27 @@
+Notes:
+1. Other than MySQL Workbench, a SQL file can also be run using the command line. To do that, first we have to navigate to where the file is located using command like cd and so on.
+   Once we are in the folder where the SQL file is saved we must open the SQL terminal using the command mysql -u root -p, enter the password, and then use the following command to run the
+   SQL file -> source <filename>.sql
+   
+2. Command prompt commands:
+   cd .. -> Lets us get out of the current folder.
+   cd <folder name> -> Lets us enter the folder with name folder name
+   cd -> Tells us where we are.
+   dir -> Tell us the folder/directories that are present in the folder where we currently are.
+
+String Functions - String Functions are different built in operations that we can perform on columns (i.e., columns that hold textual data) and expect an output.
+
+1. CONCAT(str1, str2, ...) or CONCAT(column1, column2, ...) or CONCAT(column1, str1, ...)
+   -> Combines data for cleaner output.
+
+   Returns NULL if any argument is NULL. Doesn't matter what the data type of the argument is, the output will either be of string data type or it will be NULL.
+   For quoted strings, concatenation can be perfomed by placing the string next to each other - SELECT 'My' 'S' 'QL'; -> 'MySQL'
+
+   Syntax:
+   SELECT CONCAT(<column1_name>, str1, <column2_name>, ...) AS 'Al i as'
+   FROM <table_name>;
+
+
+2. CONCAT_WS(sep, str1, str2, ...) or CONCAT_WS(sep, column1, column2, ...) or CONCAT_WS(sep, column1, str1, ...)
+   Known as Concat with Separator - The first argument that's provided worked as a seprator between each string or column that get concatenated.
+   
