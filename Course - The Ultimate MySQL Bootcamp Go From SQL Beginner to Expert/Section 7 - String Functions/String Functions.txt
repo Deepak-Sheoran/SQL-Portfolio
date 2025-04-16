@@ -9,13 +9,21 @@ Notes:
    cd -> Tells us where we are.
    dir -> Tell us the folder/directories that are present in the folder where we currently are.
 
+3. Combing String Function
+   Functions can be combined in the sense that one function can be passed in as an argument for another function and in such cases the function that was passed an argument is first called 
+   and they return an output and that output is the one that's actually used as an argument by the encompassing function.
+
 String Functions - String Functions are different built in operations that we can perform on columns (i.e., columns that hold textual data) and expect an output.
+-> CONCAT(str1, str2, ...)
+-> CONCAT_WS(sep, str1, str2, ...)
+-> SUBSTR/SUBSTRING(str, pos, len)
+-> 
 
 1. CONCAT(str1, str2, ...) or CONCAT(column1, column2, ...) or CONCAT(column1, str1, ...)
    -> Combines data for cleaner output.
 
    Returns NULL if any argument is NULL. Doesn't matter what the data type of the argument is, the output will either be of string data type or it will be NULL.
-   For quoted strings, concatenation can be perfomed by placing the string next to each other - SELECT 'My' 'S' 'QL'; -> 'MySQL'
+   For quoted strings, concatenation can be performed by placing the string next to each other - SELECT 'My' 'S' 'QL'; -> 'MySQL'
 
    Syntax:
    SELECT CONCAT(<column1_name>, str1, <column2_name>, ...) AS 'Al i as'
@@ -23,5 +31,46 @@ String Functions - String Functions are different built in operations that we ca
 
 
 2. CONCAT_WS(sep, str1, str2, ...) or CONCAT_WS(sep, column1, column2, ...) or CONCAT_WS(sep, column1, str1, ...)
-   Known as Concat with Separator - The first argument that's provided worked as a seprator between each string or column that get concatenated.
+   Known as Concat with Separator - The first argument that's provided worked as a separator between each string or column that get concatenated.
+
+3. SUBSTRING or SUBSTR with arguments -> str, pos, len -> str FROM pos FOR len. Here str and pos are mandatory, if len is not provided then starting from pos the remaining string will be 
+   given as output.
+   Substring takes a single larger string i.e., str, and returns a smaller portion of that string. The portion of the string is selected using the argument pos and len, pos tells us from 
+   where to start and len tell how many characters that will be included in the portion.
    
+   Syntax:
+   SELECT SUBSTR(str FROM pos FOR len) |or| SUBSTRING(str, pos, len);
+   Indexing starts at 1 not 0. Also negative numbers can be used for pos and they let us provide the pos from backwards.
+
+4. REPLACE -> Allows us to replace parts of the strings with some other replacement string.
+   Syntax:
+   SELECT REPLACE(str, from_str, to_str);
+   Here, to_str will replace any and all occurrences of the from_str in the str. Is case sensitive and will return NULL if any of the arguments is NULL.
+
+5. REVERSE -> Returns after reversing the order of character in a string.
+   Syntax:
+   SELECT REVERSE(str);
+
+6. CHAR_LENGTH -> Counts Characters in String
+   Syntax:
+   SELECT CHAR_LENGTH(str);
+
+7. LENGTH -> Returns the length of the string str, measured in bytes.
+   Syntax:
+   SELECT LENGTH(str);
+   
+8. UPPER/UCASE and LOWER/LCASE -> UPPER changes every character in the string to the upper case while LOWER changes them to lower case.
+   Syntax:
+   SELECT UPPER(str);
+   SELECT LOWER(str);
+
+9. INSERT(str, pos, len, newstr) -> Returns the string str, with the substring beginning at position pos and len characters long replaced by the string newstr.
+
+10. INSTR(str, substr) -> Returns the position of the first occurrence of substring substr in string str.
+
+11. LEFT(str, len) and RIGHT(str, len) -> Returns the leftmost and rightmost characters from the string str respectively.
+
+12. REPEAT(str, count) -> Returns a string consisting of the string str repeated count times. If count<1, returns an empty string.
+
+13. TRIM([{BOTH | LEADING | TRAILING} [remstr] FROM] str)
+    Returns the string str with all the remstr prefixes or suffixes removed. BOTH is chosen by default, remstr is optional and if not specified, spaces are removed
