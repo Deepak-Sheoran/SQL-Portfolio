@@ -1,0 +1,10 @@
+Aggregate Functions -> These are functions that can operate on multiple rows or multiple pieces of data at once to tell or give us metrics like Minimum, Maximum, Count, Sum or Average.
+
+Aggregate Functions:
+1. COUNT -> A built in function that we get and is used to count rows of data available in the 'Selected data'. Here the term selected data simply means that we are counting the rows of 
+   data that would have printed out after going through the SELECT statement and any other conditional statements.
+   Syntax:
+   SELECT COUNT(<column_name>) -- or COUNT(*)
+   FROM <table_name>;
+   
+   
