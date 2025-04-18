@@ -1,0 +1,46 @@
+Refining Selection - There are commands other than the 'WHERE' command that can be used to narrow and refine the selection of data. Using these commands we can manipulate data such as 
+limit the number of rows that gets printed out, sorting the data using one or more column, grouping the data using one or more columns, only printing the distinct values present in a column
+and so on.
+
+Refining Selection Commands:
+
+1. DISTINCT -> Used for eliminating the duplicate values so that we get only distinct values.
+   Syntax:
+   SELECT DISTINCT <column_name> FROM <table_name>;
+   SELECT DISTINCT <column1_name>, <column2_name> FROM <table_name>; -- Here distinct check for the combination of two columns while checking for duplicate values.
+   
+2. ORDER BY -> Used for sorting out results. Results here mean that once the data has been selected after going through the select and condition statements, it is then sorted based on a 
+   column. That column doesn't have to be selected for the selected rows to be sorted.
+   We can also put number in front of ORDER BY instead of a column name and in that case that would mean we want to order by a column that is selected and is represented by that number.
+   We can also order by multiple columns, when we do that we first sort by the first column and then if there are duplicate values present in the first column, for those duplicate values
+   the second column is used to sort the rows.
+   We can also ORDER BY columns that aren't necessarily part of the table but result of some functions and are created on the go, we can sort using their Aliases.
+   Syntax:
+   SELECT <column1_name>, …
+   FROM <table_name>
+   WHERE some_condition
+   ORDER BY <column_name> ASC/DESC; -- By default its ASC
+   -- or ORDER BY <column1_name> ASC/DESC, <column2_name> ASC/DESC;
+   
+3. LIMIT -> This command allows us to control the number of rows that gets printed out. LIMIT is best used with ORDER BY to solve very specific problems. On its own LIMIT followed by a 
+   number is used for reasons such as taking a look at the table with all the columns and a few rows -> SELECT * FROM <table_name> LIMIT <num>;
+   LIMIT can be followed by two number, the first number can from 0 onwards and it tells the system the index number and the second number tell how many rows we are expecting to be printed 
+   out.
+   Syntax:
+   SELECT *
+   FROM <table_name>
+   ORDER BY <column_name> ASC/DESC
+   LIMIT num1, num2;
+
+4. LIKE - Its a useful operator for better searching or check for conditions. We already have operators like = to check for exact matches but in case of setting condition on strings where 
+   we don't want to check for exact values but instead to look for values that follow some kind of pattern then we can use the LIKE operator.
+   Syntax:
+   SELECT *
+   FROM <table_name>
+   WHERE <column_name> LIKE '%ABC%'; -- Here all the rows will be selected in the column column_name where there are values that have ABC in them whether they be at the start, middle or 
+   end. This operation is case insensitive.
+
+   Wildcard characters:
+   - % Any number of character (zero or more).
+   - _ Exactly One character - Can be used to find rows that contain lets say 3 character long strings.
+   - \ for escaping wildcards for situations where we might need to check for condition that needs these wildcard characters themselves to be compared against.
