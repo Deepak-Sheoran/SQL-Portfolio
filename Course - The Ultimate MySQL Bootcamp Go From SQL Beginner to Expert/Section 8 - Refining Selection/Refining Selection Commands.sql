@@ -36,4 +36,3 @@ WHERE Title LIKE '%:%';
 SELECT *
 FROM Books
 WHERE Title LIKE '%\%%';
-
