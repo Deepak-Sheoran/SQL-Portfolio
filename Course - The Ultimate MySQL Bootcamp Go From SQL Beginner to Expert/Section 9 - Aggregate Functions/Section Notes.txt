@@ -1,4 +1,34 @@
-Aggregate Functions -> These are functions that can operate on multiple rows or multiple pieces of data at once to tell or give us metrics like Minimum, Maximum, Count, Sum or Average.
+- Aggregate Functions -> These are functions that can operate on multiple rows or multiple pieces of data at once to tell or give us metrics like Minimum, Maximum, Count, Sum or Average.
+  Normally, any of the aggregate function can't be used alongside other columns since aggregate functions return a single value while a columns mostly contain multiple rows so they end up
+  clashing with each other.
+
+- GROUP BY:
+  This clause summarizes or aggregates identical data into single rows. Columns that contain categorical data are used with GROUP BY.
+  Syntax:
+  SELECT *
+  FROM <table_name>
+  GROUP BY <column_name>; -- Just like ORDER BY, we can pass in multiple columns here
+
+  A more common syntax is as follows:
+  SELECT <Categorical_column>, AGGREGATE_FUNCTION(Quantitative_column) AS Metric
+  FROM <table_name>
+  GROUP BY <Categorical_column>
+  ORDER BY Metric ASC/DESC;
+
+- GROUPING BY multiple columns -> Useful when we can create subgroups within the groups that gets created by the first column <column1_name>.
+  Syntax:
+  SELECT <column1_name>, <column2_name>, ..., AGGREGATE_FUNCTION(<column_name>)
+  FROM <table_name>
+  GROUP BY <column1_name>, <column2_name>, ...;
+  
+
+- Subqueries -> A query within a bigger query. We surround a subquery with parenthesis so that the subquery is first run and returns a value which can then be used to check for conditions 
+  or print output by the bigger query.
+  Syntax:
+  SELECT *
+  FROM <table_name>
+  WHERE column_name = (SELECT MAX(column_name) FROM <table_name>);
+
 
 Aggregate Functions:
 1. COUNT -> A built in function that we get and is used to count rows of data available in the 'Selected data'. Here the term selected data simply means that we are counting the rows of 
@@ -7,4 +37,16 @@ Aggregate Functions:
    SELECT COUNT(<column_name>) -- or COUNT(*)
    FROM <table_name>;
    
+   Here putting * and a specific column name as an argument might provide different results since COUNT doesn't count NULL value so if the column <column_name> has NULL values then those 
+   won't be counted however * in most cases gives the total number of rows in a table since its normal for there to be NULL values to be present in a column but it's highly unlikely for 
+   there to a row that is completely NULL.
    
+2. MIN and MAX -> Used for finding the minimum and maximum value within a column or groups of column in case GROUP BY is in effect.
+   Syntax:
+   -- Without GROUP BY
+   SELECT MIN(column_name), MAX(column_name)
+   FROM <table_name>;
+
+3. SUM -> Just as the other aggregate function, the SUM function add all the values present in the group if the GROUP BY statement is in effect and returns a single value.
+   
+4. AVG -> Same syntax and everything, this function returns the average of a group of rows or all the rows depending on the full query.
