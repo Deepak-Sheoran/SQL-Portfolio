@@ -30,8 +30,9 @@ Types of Data Types:
 3. Types of String Data Types:
    -> CHAR and VARCHAR
       - CHAR(len) - Declared with a length len that indicates the maximum number of characters that can be stored for a value in that column. The length of a CHAR column is fixed. len can 
-        be any value from 0 to 255.
-      - VARCHAR(len) - Values are variable-length strings. len can be a value from 0 to 65,535. 
+        be any value from 0 to 255. Best be used when we know the size of each value within the column will always be within a certain range.
+      - VARCHAR(len) - Values are variable-length strings. len can be a value from 0 to 65,535. This data type is optimized for storing text of differnt sizes in the best possible ways.
+
    -> BINARY and VARBINARY
    -> BLOB and TEXT
    -> ENUM
