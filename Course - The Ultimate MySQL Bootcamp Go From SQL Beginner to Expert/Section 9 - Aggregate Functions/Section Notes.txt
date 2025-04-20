@@ -50,3 +50,15 @@ Aggregate Functions:
 3. SUM -> Just as the other aggregate function, the SUM function add all the values present in the group if the GROUP BY statement is in effect and returns a single value.
    
 4. AVG -> Same syntax and everything, this function returns the average of a group of rows or all the rows depending on the full query.
+
+5. STD() or STDDEV() or STDDEV_POP() -> Returns the population standard deviation.
+
+6. GROUP_CONCAT() -> Returns a concatenated string.
+
+7. STDDEV_SAMP() -> Returns the sample standard deviation.
+
+8. VAR_POP() -> Returns the population standard variance
+
+9. VAR_SAM() -> Returns the sample variance
+
+10. VARIANCE() -> Returns the population standard variance (Same as number 8).
