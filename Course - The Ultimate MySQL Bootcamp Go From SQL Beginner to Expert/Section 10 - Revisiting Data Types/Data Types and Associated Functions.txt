@@ -1,0 +1,38 @@
+Types of Data Types:
+1. Numeric Data Types
+2. Date and Time Data Types
+3. String Data Types
+4. Spatial Data Types
+5. The JSON Data Types
+
+1. Types of Numeric Data Types:
+   -> Integer Types(Exact Values):
+      - TINYINT - 1 Byte, -128 to 127, 0 to 255
+      - SMALLINT - 2 Bytes, -32768 to 32767, 0 to 65535
+      - MEDIUMINT - 3 Bytes, -8388608 to 8388607, 0 to 16777215
+      - INT or INTEGER - 4 Bytes
+      - BIGINT - 8 Bytes
+
+   -> Fixed-Point Types(Exact Values):
+      - DECIMAL(precision, scale)
+      - NUMERIC(precision, scale)
+      Here both DECIMAL and NUMERIC are one and the same, precision represents the number of significant digits that are stored for values, and scale tell how many digits are allowed after 
+      the decimal point.
+      Standard SQL requires that DECIMAL(5,2) be able to store any value with five digits and two decimals, so values that can be stored range from -999.99 to 999.99.
+
+   -> Floating-Point Types(Approximate Value):
+      - FLOAT  - 4 Bytes - 
+      - DOUBLE - 8 Bytes - 
+
+   -> Bit-Value Type - BIT(m) - m can range from 1 to 64.
+      BIT is used to store bit values. BIT(M) enables storage of M-bit values. If a value is assigned that is less than M bits long, the value is padded on the left with zeros.
+
+3. Types of String Data Types:
+   -> CHAR and VARCHAR
+      - CHAR(len) - Declared with a length len that indicates the maximum number of characters that can be stored for a value in that column. The length of a CHAR column is fixed. len can 
+        be any value from 0 to 255.
+      - VARCHAR(len) - Values are variable-length strings. len can be a value from 0 to 65,535. 
+   -> BINARY and VARBINARY
+   -> BLOB and TEXT
+   -> ENUM
+   -> SET
