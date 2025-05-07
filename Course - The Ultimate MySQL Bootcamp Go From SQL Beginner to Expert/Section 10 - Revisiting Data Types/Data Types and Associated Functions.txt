@@ -12,26 +12,47 @@ Types of Data Types:
       - MEDIUMINT - 3 Bytes, -8388608 to 8388607, 0 to 16777215
       - INT or INTEGER - 4 Bytes
       - BIGINT - 8 Bytes
+        The UNSIGNED can be used as a constraint while creating or altering a table and that makes it so the range starts from 0 instead of a negative number and because of that the range 
+        of integers we can store inside the columns gets longer. If a fractional value is inserted it gets rounded.
 
    -> Fixed-Point Types(Exact Values):
-      - DECIMAL(precision, scale)
-      - NUMERIC(precision, scale)
+      DECIMAL or NUMERIC data types can be more exact but it takes up more space but FLOAT AND DOUBLE store larger number using less space but that comes at the cost of precision.
+
+      - DECIMAL(precision, scale) - Total number of digits = precision, scale number of which comes after the decimal so number of digits allowed before decimal = precision - scale
+      - NUMERIC(precision, scale)   scale should be less than precision.
       Here both DECIMAL and NUMERIC are one and the same, precision represents the number of significant digits that are stored for values, and scale tell how many digits are allowed after 
       the decimal point.
       Standard SQL requires that DECIMAL(5,2) be able to store any value with five digits and two decimals, so values that can be stored range from -999.99 to 999.99.
 
    -> Floating-Point Types(Approximate Value):
-      - FLOAT  - 4 Bytes - 
-      - DOUBLE - 8 Bytes - 
-
+      - FLOAT  - 4 Bytes - Precision issues after around 7 digits.
+      - DOUBLE - 8 Bytes - Precision issues after around 15 digits.
+ 
    -> Bit-Value Type - BIT(m) - m can range from 1 to 64.
       BIT is used to store bit values. BIT(M) enables storage of M-bit values. If a value is assigned that is less than M bits long, the value is padded on the left with zeros.
+
+2. DATE and TIME Data Types:
+   -> DATE - ('YYYY-MM-DD') - Stores values with a date but no time.
+   -> TIME - ('HH:MM:SS') - Stores values with a time but no date.
+   -> DATETIME - ('YYYY-MM-DD HH:MM:SS') - Stores values with a Date and Time - Takes more space but can store a large range of date and times.
+   -> TIMESTAMP - ('YYYY-MM-DD HH:MM:SS') - Takes less space but can store a small range of date and times.
+   -> YEAR
+
+  Important Date and Time Functions:
+  
+  1. CURDATE() [or CURRENT_DATE(), CURRENT_DATE],
+     CURTIME() [or CURRENT_TIME(), CURRENT_TIME],
+     NOW() [or CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP]
+     Working with current date and time i.e., accessing the current date and time dynamically:
+   
 
 3. Types of String Data Types:
    -> CHAR and VARCHAR
       - CHAR(len) - Declared with a length len that indicates the maximum number of characters that can be stored for a value in that column. The length of a CHAR column is fixed. len can 
-        be any value from 0 to 255. Best be used when we know the size of each value within the column will always be within a certain range.
-      - VARCHAR(len) - Values are variable-length strings. len can be a value from 0 to 65,535. This data type is optimized for storing text of differnt sizes in the best possible ways.
+        be any value from 0 to 255. Best be used when we know the size of each value within the column will always be within a certain range. CHAR is faster for fixed length text.
+
+      - VARCHAR(len) - Values are variable-length strings. len can be a value from 0 to 65,535. This data type is optimized for storing text of different sizes or variable lengths in the 
+        best possible ways.
 
    -> BINARY and VARBINARY
    -> BLOB and TEXT
