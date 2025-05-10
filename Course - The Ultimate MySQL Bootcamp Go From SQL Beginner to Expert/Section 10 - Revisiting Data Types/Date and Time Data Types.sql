@@ -65,3 +65,10 @@ FROM People;
 
 SELECT BirthDateTime, TIME_FORMAT(BirthDateTime, '%T') AS '24 Hour Time Format', TIME_FORMAT(BirthDateTime, '%r') AS '12 Hour Time Format'
 FROM People;
+
+-- Operation on dates
+SELECT BirthDate, DATEDIFF(CURRENT_DATE, BirthDate) AS 'How Many Days Ago'
+FROM People;
+
+SELECT BirthDate, DATE_ADD(BirthDate, INTERVAL 18 YEAR) AS 'The Date When They Can Vote'
+FROM People;
