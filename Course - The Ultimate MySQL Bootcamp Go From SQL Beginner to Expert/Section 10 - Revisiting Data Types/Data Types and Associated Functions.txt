@@ -151,3 +151,11 @@ Types of Data Types:
    -> BLOB and TEXT
    -> ENUM
    -> SET
+
+Bonus Note:
+Setting up a feature that lets us know when a data entry was entered or even updated:
+CREATE TABLE table_name
+    (
+	Created at DATETIME DEFAULT NOW(),
+	Updated at DATETIME DEFAULT NOW() ON UPDATE NOW()
+    );
