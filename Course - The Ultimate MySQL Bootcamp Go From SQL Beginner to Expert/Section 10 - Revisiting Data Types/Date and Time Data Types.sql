@@ -36,4 +36,32 @@ SELECT
 INSERT INTO People(Name, BirthDate, BirthTime, BirthDateTime)
 VALUE ('Just Born', CURRENT_DATE, CURRENT_TIME, CURRENT_TIMESTAMP);
 
--- 
+SELECT
+	BirthDate,
+    DAYNAME(BirthDate) AS Day,
+    DAY(BirthDate) AS 'Day of Month',
+    MONTHNAME(BirthDate) AS Month,
+    MONTH(BirthDate) AS 'Month Number',
+    YEAR(BirthDate) AS Year,
+    CONCAT('The birthday was ', DAYNAME(BirthDate), ', ', DAY(BirthDate), ' of ', MONTHNAME(BirthDate), ' ', YEAR(BirthDate)) AS Statement
+FROM People;
+
+SELECT
+	BirthTime,
+    HOUR(BirthTime),
+    MINUTE(BirthTime),
+    SECOND(BirthTime),
+    MICROSECOND(BirthTime)
+FROM People;
+
+SELECT BirthDateTime, DATE(BirthDateTime), TIME(BirthDateTime)
+FROM People;
+
+-- DATE_FORMAT() Function
+SELECT
+	CONCAT('Birthday and Date Information - ', DATE_FORMAT(BirthDate, '%D of %M, Year %Y, Weekday - %W')) AS Statement,
+    DATE_FORMAT(BirthDate, '%M %e %Y') AS 'Proper Format'
+FROM People;
+
+SELECT BirthDateTime, TIME_FORMAT(BirthDateTime, '%T') AS '24 Hour Time Format', TIME_FORMAT(BirthDateTime, '%r') AS '12 Hour Time Format'
+FROM People;

@@ -40,11 +40,96 @@ Types of Data Types:
 
   Important Date and Time Functions:
   
-  1. CURDATE() [or CURRENT_DATE(), CURRENT_DATE],
+  1. Working with current date and time i.e., accessing the current date and time dynamically:
+     CURDATE() [or CURRENT_DATE(), CURRENT_DATE],
      CURTIME() [or CURRENT_TIME(), CURRENT_TIME],
      NOW() [or CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP]
-     Working with current date and time i.e., accessing the current date and time dynamically:
-   
+
+  2. Formatting Dates and extracting a portion:
+     DATE() - Extract the date part of a date or datetime expression.
+     TIME() - Extract the time portion of the expression passed.
+
+     a) Extracting numbers like day number, month number etc.
+
+        DAY() [or DAYOFMONTH()] - Returns the day of the month (0 - 31)
+        DAYOFWEEK() - Returns the weekday index of the argument [1(Sunday) - 7(Saturday)]
+        DAYOFYEAR() - Returns the day of the year (1 - 366)
+
+        WEEK() - Return the week number.
+        WEEKDAY() - Return the weekday index.
+        WEEKOFYEAR() - Return the calendar week of the date (1 - 53).
+
+        MONTH() - Return the month from the date passed.
+
+        QUARTER() - Return the quarter from a date argument.
+
+        YEAR() - Return the year.
+        YEARWEEK() - Return the year and week.
+
+        HOUR() - Extract the hour.
+        MINUTE() - Return the minute from the argument.
+        SECOND() - Return the second (0 - 59).
+        MICROSECOND() - Return the microseconds from argument.
+
+     b) Extracting information as string values
+        DAYNAME() - Return the name of the weekday.
+        MONTHNAME() - Return the name of the month.
+        
+     c) Operating on Dates and Times
+
+     d) Formatting Dates with the DATE_FORMAT(date, format) function - ex. SELECT DATE_FORMAT('2009-10-04 22:23:00', '%W %M %Y'); -- here %W is a specifier
+        Or Times with TIME_FORMAT(time, format) function.
+        Important Specifiers:
+        
+          For abbreviated names
+            %a - Weekday names(Sun, ..., Sat)
+            %b - Month names(Jan, ..., Dec)
+
+          For full names
+            %W - Weekday names(Sunday, ..., Saturday)
+            %M - Month names(January, ..., December)
+
+          For numeric values
+            Day of Week
+              %w - (0=Sunday, ..., 6=Saturday)
+          
+            Day of Month
+              %D - (0th, 1st, 2nd, 3rd, ...)
+              %d - (00, 01, 02, ..., 31)
+              %e - (0, 1, 2, 3, ..., 31)
+            
+            Day of Year
+              %j - (001, 002, ..., 366)
+
+            Month
+              %c - (0, ..., 12)
+              %m - (00, 01, ..., 12)
+
+            Year
+              %Y - Four Digit
+              %y - Two Digit
+            
+            Time
+              Hour:
+                %H - (00, ..., 23)
+                %h or %I - (01, ..., 12)
+                %k - (0, ..., 23)
+                %l - (1, ..., 12)
+              
+              Minute:
+                %i - (00, ..., 59)
+
+              Second:
+                %S or %s - (00, ..., 59)
+                
+              Microsecond:
+                %f - (000000, ..., 999999)
+
+            Special
+              %p - AM or PM
+              %r - Time, 12-hour (hh:mm:ss followed by AM or PM)
+              %T - Time, 24-hour(hh:mm:ss)
+        
 
 3. Types of String Data Types:
    -> CHAR and VARCHAR
