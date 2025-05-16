@@ -43,3 +43,12 @@ FROM Products;
 -- Optional: Drop the Products table and the sql50 database if needed
 -- DROP TABLE IF EXISTS Products;
 -- DROP DATABASE IF EXISTS sql50;
+
+CREATE TABLE Customer
+	(
+		Id TINYINT UNSIGNED AUTO_INCREMENT,
+        Name VARCHAR(20),
+        Referee_Id TINYINT UNSIGNED,
+        PRIMARY KEY(Id)
+    );
+    
