@@ -149,7 +149,12 @@ Types of Data Types:
 
    -> BINARY and VARBINARY
    -> BLOB and TEXT
-   -> ENUM
+   -> ENUM short for Enumeration/Enumerated List, a column type where we have a set of defined list. Here we get the readability of a string with the underlying storage of an integer.
+      A string object with a value chosen from a list of permitted values that are enumerated explicitly in the column specification at table creation time.
+      Ex - size ENUM('x-small', 'small', 'medium', 'large', 'x-large')
+      SELECT size, size + 0 -- size of 0 returns the index of the stored value, index starts at 1
+      The statements like ORDER BY use the indexes to perform their operation not the stored string but functions like MAX operate on the stored string not the underlying index/position.
+      
    -> SET
 
 Bonus Note:
