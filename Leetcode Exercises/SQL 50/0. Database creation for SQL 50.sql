@@ -44,6 +44,7 @@ FROM Products;
 -- DROP TABLE IF EXISTS Products;
 -- DROP DATABASE IF EXISTS sql50;
 
+
 CREATE TABLE Customer
 	(
 		Id TINYINT UNSIGNED AUTO_INCREMENT,
@@ -51,4 +52,16 @@ CREATE TABLE Customer
         Referee_Id TINYINT UNSIGNED,
         PRIMARY KEY(Id)
     );
-    
+
+INSERT INTO Customer(Name, Referee_Id)
+VALUES
+	('Will', NULL),
+	('Jane', NULL),
+    ('Alex', 2),
+    ('Bill', NULL),
+    ('Zack', 1),
+    ('Mark', 2);
+
+SELECT *
+FROM Customer;
+

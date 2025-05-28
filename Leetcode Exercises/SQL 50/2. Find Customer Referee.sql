@@ -15,3 +15,9 @@
 
 -- Return the result table in any order.
 
+USE sql50;
+SHOW TABLES;
+
+SELECT Name
+FROM Customer
+WHERE Referee_Id <> 2 OR Referee_Id IS NULL;
