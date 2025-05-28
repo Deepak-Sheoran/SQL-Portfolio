@@ -10,6 +10,9 @@ SELECT DATABASE();
 -- Set the SQL mode to allow explicit insertion of 0 into AUTO_INCREMENT columns
 SET SESSION sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
+
+
+
 -- 1. Recyclable and Low Fat Products
 -- Create the 'Products' table if it doesn't already exist
 -- This table stores product information including whether it's low fat and recyclable
@@ -20,15 +23,12 @@ CREATE TABLE IF NOT EXISTS Products
         Recyclable ENUM('Y', 'N'),                  -- Indicates if the product is recyclable
         PRIMARY KEY(Product_Id)                     -- Set Product_Id as the primary key
     );
-
 -- Set the starting value for AUTO_INCREMENT to 0
 ALTER TABLE Products AUTO_INCREMENT = 0;
-
 -- Insert a product with an explicit Product_Id of 0
 -- This only works because of the NO_AUTO_VALUE_ON_ZERO SQL mode
 INSERT INTO Products
 VALUE(0, 'Y', 'N');
-
 -- Insert multiple products with auto-generated Product_Ids
 INSERT INTO Products(Low_Fats, Recyclable)
 VALUES
@@ -36,13 +36,12 @@ VALUES
     ('N', 'Y'),
     ('Y', 'Y'),
     ('N', 'N');
-
 -- Retrieve and display all records from the Products table
 SELECT *
 FROM Products;
 
--- Optional: Drop the Products table if needed
--- DROP TABLE IF EXISTS Products;
+
+
 
 -- 2. Find Customer Referee
 CREATE TABLE Customer
@@ -52,7 +51,6 @@ CREATE TABLE Customer
         Referee_Id TINYINT UNSIGNED,
         PRIMARY KEY(Id)
     );
-
 INSERT INTO Customer(Name, Referee_Id)
 VALUES
 	('Will', NULL),
@@ -61,9 +59,10 @@ VALUES
     ('Bill', NULL),
     ('Zack', 1),
     ('Mark', 2);
-
 SELECT *
 FROM Customer;
+
+
 
 
 -- 3. Big Countries
@@ -76,7 +75,6 @@ CREATE TABLE IF NOT EXISTS World
         GDP BIGINT UNSIGNED,
         PRIMARY KEY(Name)
     );
-
 INSERT INTO World
 VALUES
 	('Afghanistan', 'Asia', 652230, 25500100, 20343000000),
@@ -84,9 +82,34 @@ VALUES
     ('Algeria', 'Africa', 2381741, 37100000, 188681000000),
     ('Andorra', 'Europe', 468, 78115, 3712000000),
     ('Angola', 'Africa', 1246700, 20609294, 100990000000);
-
 SELECT * FROM World;
 
+
+
+
+-- 4. Article Views 1
+CREATE TABLE Views
+	(
+		Article_Id TINYINT UNSIGNED,
+        Author_Id TINYINT UNSIGNED,
+        Viewer_Id TINYINT UNSIGNED,
+        View_Date DATE
+    );
+INSERT INTO Views
+VALUES
+	(1, 3, 5, '2019-08-01'),
+    (1, 3, 6, '2019-08-02'),
+    (2, 7, 7, '2019-08-01'),
+    (2, 7, 6, '2019-08-02'),
+    (4, 7, 1, '2019-07-22'),
+    (3, 4, 4, '2019-07-21'),
+    (3, 4, 4, '2019-07-21');
+SELECT * FROM Views;
+
+
+
+
+-- 5. 
 
 -- Optional: Drop the sql50 database if needed
 -- DROP DATABASE IF EXISTS sql50;
