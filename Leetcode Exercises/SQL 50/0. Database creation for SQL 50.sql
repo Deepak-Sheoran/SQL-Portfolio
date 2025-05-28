@@ -10,6 +10,7 @@ SELECT DATABASE();
 -- Set the SQL mode to allow explicit insertion of 0 into AUTO_INCREMENT columns
 SET SESSION sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
+-- 1. Recyclable and Low Fat Products
 -- Create the 'Products' table if it doesn't already exist
 -- This table stores product information including whether it's low fat and recyclable
 CREATE TABLE IF NOT EXISTS Products
@@ -40,11 +41,10 @@ VALUES
 SELECT *
 FROM Products;
 
--- Optional: Drop the Products table and the sql50 database if needed
+-- Optional: Drop the Products table if needed
 -- DROP TABLE IF EXISTS Products;
--- DROP DATABASE IF EXISTS sql50;
 
-
+-- 2. Find Customer Referee
 CREATE TABLE Customer
 	(
 		Id TINYINT UNSIGNED AUTO_INCREMENT,
@@ -65,3 +65,28 @@ VALUES
 SELECT *
 FROM Customer;
 
+
+-- 3. Big Countries
+CREATE TABLE IF NOT EXISTS World
+	(
+		Name VARCHAR(30),
+        Continent VARCHAR(30),
+        Area INT UNSIGNED,
+        Population INT UNSIGNED,
+        GDP BIGINT UNSIGNED,
+        PRIMARY KEY(Name)
+    );
+
+INSERT INTO World
+VALUES
+	('Afghanistan', 'Asia', 652230, 25500100, 20343000000),
+    ('Albania', 'Europe', 28748, 2831741, 12960000000),
+    ('Algeria', 'Africa', 2381741, 37100000, 188681000000),
+    ('Andorra', 'Europe', 468, 78115, 3712000000),
+    ('Angola', 'Africa', 1246700, 20609294, 100990000000);
+
+SELECT * FROM World;
+
+
+-- Optional: Drop the sql50 database if needed
+-- DROP DATABASE IF EXISTS sql50;
