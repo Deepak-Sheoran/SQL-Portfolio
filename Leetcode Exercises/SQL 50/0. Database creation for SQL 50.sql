@@ -6,6 +6,7 @@ USE sql50;
 
 -- Display the name of the currently selected database
 SELECT DATABASE();
+SHOW TABLES;
 
 -- Set the SQL mode to allow explicit insertion of 0 into AUTO_INCREMENT columns
 SET SESSION sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
@@ -109,7 +110,23 @@ SELECT * FROM Views;
 
 
 
--- 5. 
+-- 5. Invalid Tweets
+CREATE TABLE Tweets
+	(
+		Tweet_Id TINYINT AUTO_INCREMENT,
+        Content VARCHAR(40),
+        PRIMARY KEY(Tweet_Id)
+    );
+INSERT INTO Tweets(Content)
+VALUES
+	('Let us Code'),
+    ('More than fifteen chars are here!');
+SELECT * FROM Tweets;
+
+
+
+
+-- 6. 
 
 -- Optional: Drop the sql50 database if needed
 -- DROP DATABASE IF EXISTS sql50;
