@@ -12,8 +12,8 @@ Conditional Operators:
 8. 
 
 Logical Operators:
-1. Logical AND
-2. Logical OR
+1. Logical AND -> All conditions must be true for the operator to return true
+2. Logical OR -> Only one condition has to be true for the operator to return true
 
 Note - Logical AND and Logical OR can be used to check for multiple conditions.
 
