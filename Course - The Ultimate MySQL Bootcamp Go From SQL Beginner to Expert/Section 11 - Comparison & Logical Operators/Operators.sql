@@ -38,3 +38,7 @@ SELECT Title, CONCAT_WS(' ', Author_fname, Author_lname) AS Author, Released_yea
 FROM books
 WHERE CONCAT_WS(' ', Author_fname, Author_lname) = 'Dave Eggers' OR Released_year < 2010;
 
+SELECT Title, Pages
+FROM books
+WHERE Pages <= 200 OR Title LIKE '%stories%';
+

@@ -1,12 +1,19 @@
 Logical Operators - Logical operators allow us to check for more advanced conditions by letting us check for multiple conditions at the same time.
 Following are some of the logical operators built-in MySQL using which we can write more complex query.
 
+Conditional Operators:
 1. Not Equal -> != or <>
 2. NOT LIKE
-3. Greater Than -> > and >=
-4. Less Than -> < and <=
-5. Logical AND
-6. Logical OR
+3. Greater Than -> >
+4. Less Than -> <
+5. Greater Than Equal To -> >=
+6. Less Than Equal to -> <=
+7. 
+8. 
+
+Logical Operators:
+1. Logical AND
+2. Logical OR
 
 Note - Logical AND and Logical OR can be used to check for multiple conditions.
 
