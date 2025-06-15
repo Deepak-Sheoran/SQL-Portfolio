@@ -42,3 +42,14 @@ SELECT Title, Pages
 FROM books
 WHERE Pages <= 200 OR Title LIKE '%stories%';
 
+-- 6. BETWEEN
+SELECT Title, Released_year
+FROM books
+WHERE Released_year >= 2004 AND Released_year <= 2015;
+
+SELECT Title, Released_year
+FROM books
+WHERE Released_year BETWEEN 2004 AND 2015;
+
+-- 7. IN
+
