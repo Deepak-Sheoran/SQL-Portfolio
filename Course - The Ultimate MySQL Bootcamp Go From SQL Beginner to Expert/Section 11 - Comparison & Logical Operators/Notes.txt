@@ -9,11 +9,55 @@ Conditional Operators:
 5. Greater Than Equal To -> >=
 6. Less Than Equal to -> <=
 7. BETWEEN (a comparison operator) -> BETWEEN v1 AND v2; -- v1 and v2 are inclusive
-8. 
+8. IN -> An operator that can be used in place of multiple OR statements.
+   Syntax:
+   SELECT column_names
+   FROM table_name
+   WHERE column_name IN (v1, v2, v3); -- here values that we check against can be strings enclosed in single quotes, numerical values
+9. NOT IN -> An operator that gives us the opposite results of the IN operator.
+10. 
 
 Logical Operators:
 1. Logical AND -> All conditions must be true for the operator to return true
 2. Logical OR -> Only one condition has to be true for the operator to return true
 
+CASE Statements:
+Case statements are used 
+
+Syntax:
+SELECT column_names,
+    CASE
+        WHEN condition1 THEN v1,  -- v1, v2 are values that will be inserted if the condition is fulfilled
+        WHEN condition2 THEN v2,
+        ...
+        ELSE Default value        -- For case when none of the condition is found true
+    END AS column_name            -- column_name is the assigned alias
+FROM table_name;
+
 Note - Logical AND and Logical OR can be used to check for multiple conditions.
+
+
+
+IS NULL - Most reliable way to check for NULL values in columns.
+Syntax:
+SELECT columns
+FROM table
+WHERE column_name IS NULL;
+
+IS NOT NULL - Opposite of IS NULL, find entries that have values.
+
+DELETE
+FROM table
+WHERE column_name IS NULL; -- removes rows that don't have any values
+
+
+Comparing Dates:
+There are no special operators for comparing dates as we can use the normal ones to get the job done. So we can use operators like <, <=, >, >=, = to compare Dates, Times, Datetimes and 
+Timestamps.
+
+
+
+Bonus:
+Function - CAST(expr AS type) or CONVERT(expr, type) for changing the datatype of expr to the specific datatype 'type'.
+Mathematical Operator - Modulo or the Remainder operator (%) - num1%num2 -> gives us the remainder when num1 is divided by num2.
 
