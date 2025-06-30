@@ -29,6 +29,10 @@ SELECT Title, CONCAT_WS(' ', Author_fname, Author_lname) AS Author
 FROM books
 WHERE Author_lname LIKE 'C%' OR Author_lname LIKE 'S%';
 
+SELECT Title, CONCAT_WS(' ', Author_fname, Author_lname) AS Author
+FROM books
+WHERE LEFT(Author_lname, 1) IN ('C', 'S');
+
 -- 6. Generate the Output
 SELECT Title, CONCAT_WS(' ', Author_fname, Author_lname) AS Author,
 CASE
@@ -41,7 +45,7 @@ FROM books;
 -- 7. Generate the Output
 SELECT CONCAT_WS(' ', Author_fname, Author_lname) AS Author,
 CASE
-	WHEN COUNT(*) = 1 THEN CONCAT(COUNT(*), ' book')
+	WHEN COUNT(*) = 1 THEN '1 book'
     ELSE CONCAT(COUNT(*), ' books')
 END AS Count
 FROM books
