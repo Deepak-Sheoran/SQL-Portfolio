@@ -17,8 +17,8 @@ New Ones:
       PRIMARY KEY(Supplier_Id)
     );
   
-  Note - Using NOT NULL and UNIQUE together is not redundant since UNIQUE will allow one NULL value and if we don't want any NULL values in the column then we should apply NOT NULL alongside
-  UNIQUE.
+  Note - Using NOT NULL and UNIQUE together is not redundant since UNIQUE will allow one NULL value and if we don't want any NULL values in the column then we should apply NOT NULL 
+   alongside UNIQUE.
 
 - CHECK - allows us to set custom conditions that need to be followed for an entry to be successfully stored under a column.
   Ex:
@@ -27,8 +27,6 @@ New Ones:
       Name VARCHAR(30),
       Age INT CHECK(Age BETWEEN 0 AND 110)
     );
-  
-- 
 
 Naming Constraints:
 Syntax -> CONSTRAINT constraint_name CONSTRAINT_TYPE ();
