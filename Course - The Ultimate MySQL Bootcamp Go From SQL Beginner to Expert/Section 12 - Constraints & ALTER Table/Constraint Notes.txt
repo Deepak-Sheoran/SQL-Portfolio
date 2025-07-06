@@ -1,0 +1,48 @@
+CONSTRAINTS:
+
+The ones we know so far:
+- NOT NULL
+- DEFAULT
+- PRIMARY KEY
+
+New Ones:
+- UNIQUE - makes it so that a column or a group of columns only allow unique entries. If we try to enter a duplicate value then we get an error.
+  Ex:
+  CREATE TABLE companies
+    (
+      Supplier_Id TINYINT UNSIGNED AUTO_INCREMENT,
+      Name VARCHAR(30) NOT NULL DEFAULT 'John Doe',
+      Phone VARCHAR(20) NOT NULL UNIQUE,
+      Address VARCHAR(100) NOT NULL,
+      PRIMARY KEY(Supplier_Id)
+    );
+  
+  Note - Using NOT NULL and UNIQUE together is not redundant since UNIQUE will allow one NULL value and if we don't want any NULL values in the column then we should apply NOT NULL alongside
+  UNIQUE.
+
+- CHECK - allows us to set custom conditions that need to be followed for an entry to be successfully stored under a column.
+  Ex:
+  CREATE TABLE Partiers
+    (
+      Name VARCHAR(30),
+      Age INT CHECK(Age BETWEEN 0 AND 110)
+    );
+  
+- 
+
+Naming Constraints:
+Syntax -> CONSTRAINT constraint_name CONSTRAINT_TYPE ();
+ex
+CONSTRAINT age_over_18 CHECK (Age > 18)
+
+Multiple columns can be used to set a constraint.
+Ex:
+CREATE TABLE companies
+    (
+        Supplier_Id TINYINT UNSIGNED AUTO_INCREMENT,
+        Name VARCHAR(30) NOT NULL DEFAULT 'John Doe',
+        Phone VARCHAR(20) NOT NULL UNIQUE,
+        Address VARCHAR(100) NOT NULL,
+        PRIMARY KEY(Supplier_Id),'
+        CONSTRAINT name_address UNIQUE(Name, Address)
+    );
