@@ -1,0 +1,9 @@
+Syntax:
+- Adding Columns
+  ALTER TABLE table_name
+  ADD COLUMN column_name data_type constraints;
+
+Here if we don't specify the NOT NULL constraints then by default NULL values will be stored for the new column but if we do specify the NOT NULL constraint then for string data type '' 
+i.e., empty string will be assigned and for numerical data type the default value will be 0.
+
+-  
