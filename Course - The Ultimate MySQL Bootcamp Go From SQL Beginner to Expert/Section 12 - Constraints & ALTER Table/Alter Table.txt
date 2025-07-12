@@ -3,7 +3,42 @@ Syntax:
   ALTER TABLE table_name
   ADD COLUMN column_name data_type constraints;
 
-Here if we don't specify the NOT NULL constraints then by default NULL values will be stored for the new column but if we do specify the NOT NULL constraint then for string data type '' 
-i.e., empty string will be assigned and for numerical data type the default value will be 0.
+- Dropping Columns
+  ALTER TABLE table_name
+  DROP COLUMN column_name;
 
--  
+Renaming:
+- Tables
+  1.
+  ALTER TABLE table_name
+  RENAME TO|AS new_table_name;
+
+  2.
+  RENAME TABLE table_name TO new_table_name;
+
+- Columns
+  ALTER TABLE table_name
+  RENAME COLUMN col_name TO column_name;
+
+
+- Modifying Columns to modify their datatypes and constraints
+  ALTER TABLE table_name
+  MODIFY column_name new_data_type constraints;
+
+
+- Changing Columns to change their name and definition
+  ALTER TABLE table_name
+  CHANGE col_name column_name data_type constraints;
+
+
+- Adding Constraints
+  ALTER TABLE table_name
+  ADD CONSTRAINT name_of_constraint PRIMARY KEY; -- or FOREIGN KEY or UNIQUE or CHECK(expr)
+
+- Dropping Constraints
+  ALTER TABLE table_name
+  DROP {CHECK | CONSTRAINT} symbol; -- symbol = name of the constraint
+
+
+When Adding Columns, if we don't specify the NOT NULL constraints then by default NULL values will be stored for the new column but if we do specify the NOT NULL constraint then for string 
+data type '' i.e., empty string will be assigned and for numerical data type the default value will be 0.
