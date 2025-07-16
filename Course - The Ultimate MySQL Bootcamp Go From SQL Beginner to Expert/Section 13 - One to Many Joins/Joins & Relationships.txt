@@ -1,0 +1,28 @@
+Real world data is messy, large in quantity and interrelated.
+Relationships - Different ways the data/tables can be related.
+
+Common Types of Relationships:
+1. One to One
+2. One to Many or Many to One
+3. Many to Many
+
+One to One Relationships between tables are not that common. An example would be the relations b/w the Customers table and Details table that contains the detailed information about the
+customers.
+
+One to Many or Many to One is the usual type of relationship observed. Example -> Books and Reviews table. A book can have many reviews but a review can be associated with only one book for
+which it was posted against.
+
+Many to Many is a relatively common relationship. Ex-> Books and Authors - A book can have multiple authors and an author might have written multiple books.
+
+
+One to Many Relationship:
+Ex- Customers and Orders
+What we want to store:
+A customer's first and last name (Customers)
+A customer's email (Customers)
+The data of the purchase (Orders)
+The price of the order (Orders)
+
+FOREIGN KEY - Foreign key is a column in a table that references another column in a different table. The main purpose for this key is to act as a kind of a bridge between the two tables
+and enforce some rules like it won't allow an entry in its table unless there is already an entry that exists in the other table.
+

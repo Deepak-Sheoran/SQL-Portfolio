@@ -54,4 +54,4 @@ ON A.Customer_Id = B.Customer_Id;
 DROP TABLE IF EXISTS Orders;
 DROP TABLE IF EXISTS Customers;
 
-DROP DATABASE IF EXISTS  Company;
+DROP DATABASE IF EXISTS Company;
