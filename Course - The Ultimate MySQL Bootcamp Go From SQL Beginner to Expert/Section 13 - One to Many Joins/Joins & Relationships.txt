@@ -26,3 +26,6 @@ The price of the order (Orders)
 FOREIGN KEY - Foreign key is a column in a table that references another column in a different table. The main purpose for this key is to act as a kind of a bridge between the two tables
 and enforce some rules like it won't allow an entry in its table unless there is already an entry that exists in the other table.
 
+Syntax for creating a foreign key while creating a table:
+FOREIGN KEY (column_name) REFERENCES other_table_name(col_name)
+

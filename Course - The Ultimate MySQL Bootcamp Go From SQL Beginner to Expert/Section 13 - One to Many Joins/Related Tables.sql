@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS Customers
         First_Name VARCHAR(30) NOT NULL DEFAULT 'John',
         Last_Name VARCHAR(30) NOT NULL DEFAULT 'Doe',
         Email VARCHAR(50) NOT NULL DEFAULT 'NotAny@gmail.com',
-        CONSTRAINT email_standard CHECK(Email LIKE '%@gmail.com'),
+        CONSTRAINT email_standard CHECK(Email LIKE '%@%'),
         PRIMARY KEY(Customer_Id)
     );
 
@@ -31,14 +31,16 @@ VALUES
 	('Boy', 'George', 'george@gmail.com'),
 	('George', 'Michael', 'gm@gmail.com'),
     ('David', 'Bowie', 'david@gmail.com'),
-    ('Blue', 'Steele', 'blue@gmail.com');
+    ('Blue', 'Steele', 'blue@gmail.com'),
+    ('Bette', 'Davis', 'bette@aol.com');
 
 INSERT INTO Orders(Order_Date, Amount, Customer_Id)
 VALUES
 	('2016-02-10', 99.99, 1),
     ('2017-11-11', 35.50, 1),
     ('2014-12-12', 800.67, 2),
-    ('2015-01-03', 12.50, 2);
+    ('2015-01-03', 12.50, 2),
+    ('1999-04-11', 450.25, 5);
 
 
 SELECT *
@@ -50,6 +52,20 @@ SELECT Order_Id, A.Customer_Id, CONCAT_WS(' ', First_Name, Last_Name) AS Name, E
 FROM Customers AS A
 JOIN Orders AS B
 ON A.Customer_Id = B.Customer_Id;
+
+SELECT A.Customer_Id, CONCAT_WS(' ', First_Name, Last_Name) AS Name, SUM(Amount) AS 'Total Amount'
+FROM Customers AS A
+JOIN Orders AS B
+ON A.Customer_Id = B.Customer_Id
+GROUP BY A.Customer_Id, Name
+ORDER BY 'Total Amount';
+
+DELETE
+FROM Customers
+WHERE Customer_Id = 1;
+
+SELECT *
+FROM Orders;
 
 DROP TABLE IF EXISTS Orders;
 DROP TABLE IF EXISTS Customers;
