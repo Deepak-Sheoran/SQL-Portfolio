@@ -1,58 +1,59 @@
-CREATE DATABASE IF NOT EXISTS Company;
-SHOW DATABASES;
 USE Company;
 SELECT DATABASE();
-
-CREATE TABLE IF NOT EXISTS Customers
-	(
-		Customer_Id TINYINT UNSIGNED AUTO_INCREMENT,
-        First_Name VARCHAR(30) NOT NULL DEFAULT 'John',
-        Last_Name VARCHAR(30) NOT NULL DEFAULT 'Doe',
-        Email VARCHAR(50) NOT NULL DEFAULT 'NotAny@gmail.com',
-        CONSTRAINT email_standard CHECK(Email LIKE '%@%'),
-        PRIMARY KEY(Customer_Id)
-    );
-
-CREATE TABLE IF NOT EXISTS Orders
-	(
-		Order_Id TINYINT UNSIGNED AUTO_INCREMENT,
-        Order_Date DATE NOT NULL,
-        Amount NUMERIC(8,2) NOT NULL DEFAULT 0.00,
-        Customer_Id TINYINT UNSIGNED NOT NULL,
-        PRIMARY KEY(Order_Id),
-        FOREIGN KEY(Customer_Id) REFERENCES Customers(Customer_Id) ON DELETE CASCADE
-    );
-
-DESC Customers;
-DESC Orders;
-
-INSERT INTO Customers(First_Name, Last_Name, Email)
-VALUES
-	('Boy', 'George', 'george@gmail.com'),
-	('George', 'Michael', 'gm@gmail.com'),
-    ('David', 'Bowie', 'david@gmail.com'),
-    ('Blue', 'Steele', 'blue@gmail.com'),
-    ('Bette', 'Davis', 'bette@aol.com');
-
-INSERT INTO Orders(Order_Date, Amount, Customer_Id)
-VALUES
-	('2016-02-10', 99.99, 1),
-    ('2017-11-11', 35.50, 1),
-    ('2014-12-12', 800.67, 2),
-    ('2015-01-03', 12.50, 2),
-    ('1999-04-11', 450.25, 5);
-
-
+SHOW TABLES;
 SELECT *
 FROM Customers;
 SELECT *
 FROM Orders;
+
+
+
+
+-- Joins
+-- Cross Join
+SELECT *
+FROM Customers, Orders;
+-- Inner Join
+SELECT *
+FROM Customers
+JOIN Orders
+ON Customers.Customer_Id = Orders.Customer_Id;
+-- Left Join
+SELECT *
+FROM Customers
+LEFT JOIN Orders
+ON Customers.Customer_Id = Orders.Customer_Id;
+-- Right Join
+SELECT *
+FROM Customers
+RIGHT JOIN Orders
+ON Customers.Customer_Id = Orders.Customer_Id;
+
+
+
+
+-- Find the orders placed by Boy George
+-- Method 1. Using Subquery
+SELECT *
+FROM Orders
+WHERE Customer_Id = (SELECT Customer_Id FROM Customers WHERE CONCAT_WS(' ', First_Name, Last_Name) = 'Boy George');
+-- Method 2. Using Joins
+SELECT A.Customer_Id, Order_Id, CONCAT_WS(' ', First_Name, Last_Name) AS 'Full Name', Amount
+FROM Customers AS A
+JOIN Orders AS B
+ON A.Customer_Id = B.Customer_Id
+WHERE CONCAT_WS(' ', First_Name, Last_Name) = 'Boy George';
+
+
 
 SELECT Order_Id, A.Customer_Id, CONCAT_WS(' ', First_Name, Last_Name) AS Name, Email, Order_Date, Amount
 FROM Customers AS A
 JOIN Orders AS B
 ON A.Customer_Id = B.Customer_Id;
 
+
+
+-- Inner Join with Group By
 SELECT A.Customer_Id, CONCAT_WS(' ', First_Name, Last_Name) AS Name, SUM(Amount) AS 'Total Amount'
 FROM Customers AS A
 JOIN Orders AS B
@@ -60,14 +61,10 @@ ON A.Customer_Id = B.Customer_Id
 GROUP BY A.Customer_Id, Name
 ORDER BY 'Total Amount';
 
-DELETE
-FROM Customers
-WHERE Customer_Id = 1;
-
-SELECT *
-FROM Orders;
-
-DROP TABLE IF EXISTS Orders;
-DROP TABLE IF EXISTS Customers;
-
-DROP DATABASE IF EXISTS Company;
+-- IFNULL function
+SELECT A.Customer_Id, CONCAT_WS(' ', First_Name, Last_Name) AS Name, IFNULL(SUM(Amount), 0) AS Total
+FROM Customers AS A
+LEFT JOIN Orders AS B
+ON A.Customer_Id = B.Customer_Id
+GROUP BY A.Customer_Id
+ORDER BY Total;

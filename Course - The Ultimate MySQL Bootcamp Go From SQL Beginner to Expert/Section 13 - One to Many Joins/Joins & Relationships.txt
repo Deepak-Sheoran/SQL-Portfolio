@@ -29,3 +29,36 @@ and enforce some rules like it won't allow an entry in its table unless there is
 Syntax for creating a foreign key while creating a table:
 FOREIGN KEY (column_name) REFERENCES other_table_name(col_name)
 
+Types of Join:-
+1. Cross Join
+   As the name suggests, this type of join matches every row in one table with the ones in the other table. No real significance and its rarely used.
+   Syntax:
+   SELECT *
+   FROM table1, table2;
+
+2. Inner Join
+   Selects all the rows from both table where the join condition is met.
+   SELECT *
+   FROM table1 AS A
+   JOIN table2 AS B
+   ON A.col1 = B.col2 -- Usually if col1 is the primary key then col2 is the foreign key
+
+3. Left Join
+   Select everything from the first table we write along with any matching records in the second table. If there are multiple matching records in the second table (only possible if the 
+   relation between the two table is either one to many or many to many) then the records from the first table will be duplicated. In case there are no matching records in the second
+   table NULL values will be placed under the column names of the second table.
+   So:
+   Duplicate values created for the first table -> multiple matching records from the second table.
+   NULL values under the column for the second table -> no matching record found in the second table.
+   Note - all the rows from the first table will be selected and duplicated if there are multiple matching records present in the second table.
+   Syntax:
+   SELECT *
+   FROM table1 AS A      --table1 is the first table
+   LEFT JOIN table2 AS B --table2 is the second table
+   ON A.col1 = B.col2
+
+4. Right Join
+   Almost same as the left join, just the order of the first and second table change.
+
+IFNULL(expr, value) -> used in front of the SELECT, replaces NULL values present in the column with value.
+
