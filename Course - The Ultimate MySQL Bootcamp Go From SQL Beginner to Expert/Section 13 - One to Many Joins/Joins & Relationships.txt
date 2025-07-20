@@ -62,3 +62,5 @@ Types of Join:-
 
 IFNULL(expr, value) -> used in front of the SELECT, replaces NULL values present in the column with value.
 
+ON DELETE CASCADE:
+Allows us to delete rows from the first table since this command deletes any matching records from the second table so that the foreign key does not fail otherwise we get an error.

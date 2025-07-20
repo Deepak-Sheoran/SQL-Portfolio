@@ -4,6 +4,7 @@ The ones we know so far:
 - NOT NULL
 - DEFAULT
 - PRIMARY KEY
+- UNSIGNED
 
 New Ones:
 - UNIQUE - makes it so that a column or a group of columns only allow unique entries. If we try to enter a duplicate value then we get an error.
