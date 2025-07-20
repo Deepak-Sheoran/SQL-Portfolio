@@ -1,0 +1,9 @@
+Some examples of Many to Many Relationships:
+1. Books <> Authors
+2. BlogPost <> Tags
+3. Students <> Classes
+
+In the section we will be working with three table, two of which have a many to many relationship with each other while the third one plays the part of joining those two tables.
+
+Tables
+Reviewers <> Series, Reviews
