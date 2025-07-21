@@ -62,9 +62,9 @@ GROUP BY First_Name, Last_Name;
 
 -- 7. Output Title of the series, its rating and the full name of the person who left that rating
 SELECT Title, Rating, CONCAT_WS(' ', First_Name, Last_Name) AS Reviewer
-FROM Series
-JOIN Reviews
+FROM Reviews
+JOIN Series
 ON Series.Id = Reviews.Series_Id
 JOIN Reviewers
-ON  Reviewers.Id = Reviews.Reviewer_Id
+ON Reviewers.Id = Reviews.Reviewer_Id
 ORDER BY Title;
