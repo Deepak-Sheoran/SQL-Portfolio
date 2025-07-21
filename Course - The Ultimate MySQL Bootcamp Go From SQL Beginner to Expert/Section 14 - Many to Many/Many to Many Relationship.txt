@@ -7,3 +7,5 @@ In the section we will be working with three table, two of which have a many to 
 
 Tables
 Reviewers <> Series, Reviews
+
+ROUND(num, len) -- len is optional, if not provide the function will round the number to the nearest integer

@@ -1,0 +1,13 @@
+SHOW DATABASES;
+USE TV;
+SELECT DATABASE();
+
+SELECT *
+FROM Series;
+SELECT *
+FROM Reviewers;
+SELECT *
+FROM Reviews;
+
+
+

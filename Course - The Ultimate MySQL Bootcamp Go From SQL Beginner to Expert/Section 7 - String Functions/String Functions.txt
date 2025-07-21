@@ -74,3 +74,6 @@ String Functions - String Functions are different built in operations that we ca
 
 13. TRIM([{BOTH | LEADING | TRAILING} [remstr] FROM] str)
     Returns the string str with all the remstr prefixes or suffixes removed. BOTH is chosen by default, remstr is optional and if not specified, spaces are removed
+
+
+Note - ROUND(num, len);
