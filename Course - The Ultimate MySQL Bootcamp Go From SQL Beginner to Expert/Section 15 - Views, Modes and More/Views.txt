@@ -1,0 +1,8 @@
+Views - Views are stored queries that when invoked produce a result set. A view acts as a virtual table. At their core views are stored queries that we give a name and then store so that we
+don't have to write the same query over and over again.
+
+Syntax:
+CREATE VIEW view_name AS
+query;
+
+Views are especially helpful when one is working with multiple related tables and have to keep joining these tables every time 
