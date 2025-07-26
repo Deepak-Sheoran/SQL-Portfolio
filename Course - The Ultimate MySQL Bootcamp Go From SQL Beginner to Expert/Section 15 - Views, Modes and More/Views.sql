@@ -25,5 +25,50 @@ FROM Full_Reviews;
 SELECT *
 FROM Full_Reviews
 WHERE Genre = 'Animation';
+-- Doing a group by
+SELECT Genre, AVG(Rating) AS Average_Rating
+FROM Full_Reviews
+GROUP BY Genre
+ORDER BY Average_Rating;
 
--- DROP VIEW Full_Reviews;
+
+
+-- Updatable views
+CREATE VIEW Ordered_Series AS
+SELECT *
+FROM Series
+ORDER BY Released_Year;
+
+SELECT *
+FROM Ordered_Series;
+
+INSERT INTO Ordered_Series(Title, Released_Year, Genre)
+VALUE('The Great', 2020, 'Comedy');
+
+SELECT *
+FROM Series;
+
+DELETE
+FROM Ordered_Series
+WHERE Title = 'The Great';
+
+SELECT *
+FROM Series;
+
+
+
+-- Changing an existing view
+-- 1. CREATE OR REPLACE
+CREATE OR REPLACE VIEW Ordered_Series AS
+SELECT *
+FROM Series
+ORDER BY Released_Year DESC;
+
+SELECT *
+FROM Ordered_Series;
+
+-- 2. ALTER VIEW
+ALTER VIEW Ordered_Series
+
+DROP VIEW Ordered_Series;
+DROP VIEW Full_Reviews;
