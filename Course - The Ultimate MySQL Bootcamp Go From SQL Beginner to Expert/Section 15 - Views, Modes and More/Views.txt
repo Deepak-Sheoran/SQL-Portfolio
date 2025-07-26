@@ -1,8 +1,52 @@
 Views - Views are stored queries that when invoked produce a result set. A view acts as a virtual table. At their core views are stored queries that we give a name and then store so that we
 don't have to write the same query over and over again.
+Views are essentially virtual tables but not actual table so we are not storing actual table when we create a view. Views are in essence the result of a query and what we do is simply 
+save a complex and give it a name so that next time we need to build upon it we can simply call the view and start from there instead of writing the first complex query from scratch.
 
 Syntax:
 CREATE VIEW view_name AS
 query;
 
-Views are especially helpful when one is working with multiple related tables and have to keep joining these tables every time 
+Views are especially helpful when one is working with multiple related tables and have to keep joining these tables every time
+
+To find only the views that we have created in a certain database,
+Syntax:
+  SELECT TABLE_NAME
+  FROM information_schema.VIEWS
+  WHERE TABLE_SCHEMA = 'your_database_name';
+
+Example:
+  -- Following is the code for finding the views in a database
+  SELECT TABLE_NAME
+  FROM information_schema.VIEWS
+  WHERE TABLE_SCHEMA = 'TV';
+
+The views that we create can also be found using the SHOW TABLES query.
+
+What can and can't be done using views:
+(The limitation comes from the fact that views aren't real tables so there are some operation we can't perform on views. Only a very small portion of views are updatable and insertable, if 
+a view has the following then it is no longer updatable and insertable:
+- Aggregate functions or window functions (SUM(), MIN(), MAX(), COUNT(), and so forth)
+- DISTINCT
+- GROUP BY
+- HAVING
+- UNION or UNION ALL
+- Subquery in the select list
+- Certain joins
+- Reference to nonupdatable view in the FROM clause
+- Subquery in the WHERE clause that refers to a table in the FROM clause
+- Refers only to literal values (because there is no underlying table to update)
+
+If a view is updatable and insertable and if we update/insert/delete data from that view then the underlying table will also be updated.
+
+
+Changing or altering a view after it has been created:
+- Creating the view again without dropping the existing one will raise an error.
+Instead of creating we can use the following syntax to implement the change in the view and we will end up with a view the same name
+CREATE OR REPLACE VIEW view_name AS
+query;
+
+
+
+
+
