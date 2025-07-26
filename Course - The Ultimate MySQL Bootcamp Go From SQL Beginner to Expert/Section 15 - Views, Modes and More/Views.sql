@@ -1,6 +1,10 @@
 SHOW DATABASES;
 USE TV;
 SELECT DATABASE();
+-- Following is the code for finding the views in a database
+SELECT TABLE_NAME
+FROM information_schema.VIEWS
+WHERE TABLE_SCHEMA = 'TV';
 
 SHOW TABLES;
 
@@ -13,6 +17,11 @@ JOIN Reviewers AS C
 	ON A.Reviewer_Id = C.Id
 ORDER BY Series_Id;
 
+SELECT *
+FROM Full_Reviews;
+
+-- Further operation we can perform using views
+-- a simple logical statement
 SELECT *
 FROM Full_Reviews
 WHERE Genre = 'Animation';
