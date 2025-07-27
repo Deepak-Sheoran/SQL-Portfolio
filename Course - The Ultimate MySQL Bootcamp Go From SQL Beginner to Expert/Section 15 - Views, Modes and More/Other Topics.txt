@@ -1,0 +1,21 @@
+HAVING clause - Allows us to filter the data after the group by statement. WHERE clause does not help us in filtering the grouped up data because WHERE clause runs first and the GROUP BY 
+statements are run afterwards.
+
+WITH ROLLUP:
+- WITH ROLLUP is used with GROUP BY to add subtotals and a grand total to your grouped data.
+- It helps you summarize data at multiple levels in one query.
+
+Syntax and Example:
+  SELECT department, SUM(salary)
+  FROM employees
+  GROUP BY department WITH ROLLUP;
+
+What it does:
+  Groups data by department.
+  Adds an extra row at the end that shows the total salary across all departments.
+
+Key Points:
+  Only works with GROUP BY.
+  The final row(s) will have NULL in the grouped column(s), showing it’s a subtotal or total.
+  We can use IFNULL() or COALESCE() to label the total row.
+

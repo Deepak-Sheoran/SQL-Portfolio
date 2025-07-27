@@ -16,3 +16,7 @@ GROUP BY Title
 HAVING COUNT(Title) >= 3
 ORDER BY COUNT(Title);
 
+-- WITH ROLLUP
+SELECT IFNULL(Title, 'Total'), COUNT(Title) AS 'Review Count', ROUND(AVG(Rating), 2) AS 'Average Rating'
+FROM Full_Reviews
+GROUP BY Title WITH ROLLUP;
