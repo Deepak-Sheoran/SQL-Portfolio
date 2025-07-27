@@ -13,7 +13,7 @@ To find only the views that we have created in a certain database,
 Syntax:
   SELECT TABLE_NAME
   FROM information_schema.VIEWS
-  WHERE TABLE_SCHEMA = 'your_database_name';
+  WHERE TABLE_SCHEMA = 'database name';
 
 Example:
   -- Following is the code for finding the views in a database
@@ -33,7 +33,7 @@ a view has the following then it is no longer updatable and insertable:
 - UNION or UNION ALL
 - Subquery in the select list
 - Certain joins
-- Reference to nonupdatable view in the FROM clause
+- Reference to non updatable view in the FROM clause
 - Subquery in the WHERE clause that refers to a table in the FROM clause
 - Refers only to literal values (because there is no underlying table to update)
 
@@ -42,11 +42,11 @@ If a view is updatable and insertable and if we update/insert/delete data from t
 
 Changing or altering a view after it has been created:
 - Creating the view again without dropping the existing one will raise an error.
-Instead of creating we can use the following syntax to implement the change in the view and we will end up with a view the same name
-CREATE OR REPLACE VIEW view_name AS
-query;
-
-
-
-
-
+- Instead of creating we can use the following syntax to implement the change in the view and we will end up with a view the same name
+  CREATE OR REPLACE VIEW view_name AS
+  query;
+- If the reason we want to change the view is because of the query then we can use the following syntax:
+  ALTER VIEW view_name AS
+  changed query;
+- Dropping a view can be achieved via the following query:
+  DROP VIEW view_name;

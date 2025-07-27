@@ -1,10 +1,6 @@
 SHOW DATABASES;
 USE TV;
 SELECT DATABASE();
--- Following is the code for finding the views in a database
-SELECT TABLE_NAME
-FROM information_schema.VIEWS
-WHERE TABLE_SCHEMA = 'TV';
 
 SHOW TABLES;
 
@@ -68,7 +64,19 @@ SELECT *
 FROM Ordered_Series;
 
 -- 2. ALTER VIEW
-ALTER VIEW Ordered_Series
+ALTER VIEW Ordered_Series AS
+SELECT *
+FROM Series
+ORDER BY Released_year;
+
+SELECT *
+FROM Ordered_Series;
+
+
+
+-- Following is the code for finding the views in a database
+SELECT TABLE_NAME
+FROM information_schema.VIEWS
+WHERE TABLE_SCHEMA = 'TV';
 
 DROP VIEW Ordered_Series;
-DROP VIEW Full_Reviews;
