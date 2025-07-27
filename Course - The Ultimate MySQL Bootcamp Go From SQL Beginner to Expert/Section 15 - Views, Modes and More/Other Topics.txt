@@ -18,4 +18,3 @@ Key Points:
   Only works with GROUP BY.
   The final row(s) will have NULL in the grouped column(s), showing it’s a subtotal or total.
   We can use IFNULL() or COALESCE() to label the total row.
-
