@@ -1,0 +1,16 @@
+Server SQL Modes - They are basically settings that we can turn on and off to change the behaviour and validations of MySQL.
+Modes affect the SQL syntax MySQL supports and the data validation checks it performs.
+
+Viewing the current modes that are in effect:
+1. SELECT @@GLOBAL.sql_mode;   - Shows the sql modes that are active in the global scale
+2. SELECT @@SESSION.sql_mode;  - Shows the sql modes that are active in the current session, should be the same as the global unless we do some changes
+
+Changing the modes:
+We basically have to list all the modes in a piece of text in quotes
+Syntax:
+1. SET GLOBAL sql_mode = 'modes';
+2. SET SESSION sql_mode = 'modes';
+
+Changing the modes in a session is more practical since going with the other option leaves us with more permanent changes.
+
+ex - 
