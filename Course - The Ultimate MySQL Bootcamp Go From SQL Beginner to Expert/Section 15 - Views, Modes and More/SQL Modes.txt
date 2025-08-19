@@ -1,5 +1,7 @@
 Server SQL Modes - They are basically settings that we can turn on and off to change the behaviour and validations of MySQL.
 Modes affect the SQL syntax MySQL supports and the data validation checks it performs.
+Data Validation - The process of ensuring that data is accurate, complete, and consistent before it's used, imported, or processed. It involves checking data against pre-defined rules and 
+constraints to identify and correct errors or inconsistencies.
 
 Viewing the current modes that are in effect:
 1. SELECT @@GLOBAL.sql_mode;   - Shows the sql modes that are active in the global scale
@@ -12,5 +14,13 @@ Syntax:
 2. SET SESSION sql_mode = 'modes';
 
 Changing the modes in a session is more practical since going with the other option leaves us with more permanent changes.
+To disable all the modes - SET SESSION sql_mode = '';
 
-ex - 
+Some SQL Modes:
+
+STRICT_TRANS_TABLES - TRANS stands for transaction - Stops or generates error when one tries to enter or update data but does not follow the structure or data validation rules set on the 
+table.
+ONLY_FULL_GROUP_BY - States that we can only column that are either in front of the group by or are being aggregated using aggregate functions like SUM, AVG, MIN, MAX, COUNT etc.
+NO_ZERO_IN_DATE - Affects whether the server permits dates in which the year part is nonzero but the month or day part is 0.
+
+Note - Strict mode will be enabled if we have either of these two modes enabled - STRICT_TRANS_TABLES, STRICT_ALL_TABLES.
