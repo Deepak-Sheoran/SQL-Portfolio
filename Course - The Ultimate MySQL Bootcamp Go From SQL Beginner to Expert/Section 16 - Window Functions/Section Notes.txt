@@ -3,17 +3,58 @@ Window Functions:
    It creates a “window” of rows defined by OVER() and computes values like rankings, running totals, moving averages, or comparisons with previous/next rows.
 Or in simple terms - Window function perform aggregate operations on groups of rows, but they produce a result FOR EACH ROW.
 
+Ex. Syntax:
+SELECT
+	emp_no, department, salary,
+	AVG(salary) OVER(PARTITION BY department) AS dept_avg
+FROM emps;
+
+Syntax
+SELECT
+	column1, column2,
+	Function(column) OVER(PARTITION BY Categorical_column) AS alias
+FROM table;
+
+
+OVER clause:
+    The OVER() clause constructs a window or a group. When it's empty, the window will include all records.
+
+PARTITION BY clause inside the OVER() clause:
+    Inside of the OVER(), we can use PARTITION BY to form rows into groups of row or window in this case
+
+ORDER BY clause inside the OVER() clause:
+    We can use the ORDER BY inside of the OVER() clause to re-order rows with each window.
+    Using this we can calculate the running totals of SUM(), AVG() etc.
+    Syntax:
+    SELECT
+        columns,
+        SUM(column) OVER(PARTITION BY categorical_column ORDER BY column)
+    FROM table;
+    
+
+Window Functions:
 Non Aggregate Window Functions: (https://dev.mysql.com/doc/refman/8.4/en/window-function-descriptions.html)
     Nonaggregate window functions that, for each row from a query, perform a calculation using rows related to that row.
 
 CUME_DIST()	Cumulative distribution value
 DENSE_RANK()	Rank of current row within its partition, without gaps
-FIRST_VALUE()	Value of argument from first row of window frame
+FIRST_VALUE(arg)Value of argument from first row of window frame
 LAG()	        Value of argument from row lagging current row within partition
 LAST_VALUE()	Value of argument from last row of window frame
 LEAD()	        Value of argument from row leading current row within partition
-NTH_VALUE()	Value of argument from N-th row of window frame
-NTILE()	        Bucket number of current row within its partition.
+NTH_VALUE(arg,n)Value of argument from N-th row of window frame
+NTILE(n)	Bucket number of current row within its partition.
 PERCENT_RANK()	Percentage rank value
 RANK()	        Rank of current row within its partition, with gaps
 ROW_NUMBER()	Number of current row within its partition
+
+
+RANK(): When we use RANK() any values that are same within the window are given the same rank and same number of ranks are skipped as the duplicates - 1,2,2,4,5,5,5,8
+Syntax:
+	SELECT
+		columns,
+		RANK() OVER(ORDER BY column ASC/DESC)
+	FROM table;
+DENSE_RANK(): Almost same as RANK() but when there are same values same ranks are given to the same values but then the ranks are not skipped - 1,2,2,3,4,4,4,5
+ROW_NUMBER(): Returns the number of the current row within its partition.
+NTILE(n) - Divides a partition into n groups (buckets), assigns each row in the partition its bucket number, and returns the bucket number of the current row.
