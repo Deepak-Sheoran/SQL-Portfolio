@@ -65,6 +65,6 @@ CREATE TABLE IF NOT EXISTS Follows
     );
 DESC Follows;
 
-
+-- 
 
 SHOW TABLES;
