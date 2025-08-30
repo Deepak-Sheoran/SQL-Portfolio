@@ -1,0 +1,27 @@
+To create a database for an app like Instagram at the most basic level one will need to store the following information:
+- Users
+- Comments
+- Photos
+- Likes
+- Follower/Followees
+- Hashtags
+
+Users:
+The User table in the Instagram database will need at least the following columns
+User Id - Primary key of the table to uniquely identify each row
+User Name - Name of the user, we can apply the unique constraint so no two users have the same name
+
+Photos:
+The Photos table must have the following columns:
+Photo_Id - Primary key to distinguish each photo entry from one another
+User_Id - Points to the User that uploaded the photo
+Image_URL
+The relationship between Users and Photos table will be one to many, a user can upload multiple photos on their account afterall.
+
+Comments:
+The comments table will have relationship with the above two table since its a user that comments and they are commenting on a photo/post written by another user
+Comment_Id
+Comment_Text
+User_Id - User that posted that comment
+Photo_Id - Photo related to which the comment was posted
+

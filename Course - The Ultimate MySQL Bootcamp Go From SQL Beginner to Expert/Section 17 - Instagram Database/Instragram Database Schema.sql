@@ -1,0 +1,44 @@
+CREATE DATABASE IF NOT EXISTS Instagram;
+SHOW DATABASES;
+USE Instagram;
+SELECT DATABASE();
+
+-- Users Table
+CREATE TABLE IF NOT EXISTS Users
+	(
+		User_Id SMALLINT UNSIGNED AUTO_INCREMENT,
+        User_Name VARCHAR(50) NOT NULL UNIQUE,
+        Created_At TIMESTAMP DEFAULT NOW(),
+        PRIMARY KEY(User_Id)
+    );
+SHOW COLUMNS
+FROM Users;
+
+-- Photos Table
+CREATE TABLE IF NOT EXISTS Photos
+	(
+		Photo_Id SMALLINT UNSIGNED AUTO_INCREMENT,
+        User_Id SMALLINT UNSIGNED NOT NULL,
+        Image_URL VARCHAR(50) NOT NULL,
+        Created_At TIMESTAMP DEFAULT NOW(),
+        PRIMARY KEY(Photo_Id),
+        FOREIGN KEY(User_Id) REFERENCES Users(User_Id) ON DELETE CASCADE
+    );
+DESC Photos;
+
+-- Comments Table
+CREATE TABLE IF NOT EXISTS Comments
+	(
+		Comment_Id SMALLINT UNSIGNED AUTO_INCREMENT,
+        Comment_Text VARCHAR(255) NOT NULL,
+        User_Id SMALLINT UNSIGNED NOT NULL,
+        Photo_Id SMALLINT UNSIGNED NOT NULL,
+        Created_At TIMESTAMP DEFAULT NOW(),
+        PRIMARY KEY(Comment_Id),
+        FOREIGN KEY(User_Id) REFERENCES Users(User_Id) ON DELETE CASCADE,
+        FOREIGN KEY(Photo_Id) REFERENCES Photos(Photo_Id) ON DELETE CASCADE
+    );
+DESCRIBE Comments;
+
+
+SHOW TABLES;
