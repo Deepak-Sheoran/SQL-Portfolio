@@ -40,5 +40,31 @@ CREATE TABLE IF NOT EXISTS Comments
     );
 DESCRIBE Comments;
 
+-- Likes Table
+CREATE TABLE IF NOT EXISTS Likes
+	(
+		User_Id SMALLINT UNSIGNED NOT NULL,
+        Photo_Id SMALLINT UNSIGNED NOT NULL,
+        Created_At TIMESTAMP DEFAULT NOW(),
+        FOREIGN KEY(User_Id) REFERENCES Users(User_Id) ON DELETE CASCADE,
+        FOREIGN KEY(Photo_Id) REFERENCES Photos(Photo_Id) ON DELETE CASCADE,
+        CONSTRAINT Not_More_Than_One_Like UNIQUE(User_Id, Photo_Id)
+    );
+SHOW COLUMNS
+FROM Likes;
+
+-- Follows Table
+CREATE TABLE IF NOT EXISTS Follows
+	(
+		Follower_Id SMALLINT UNSIGNED NOT NULL,
+        Followee_Id SMALLINT UNSIGNED NOT NULL,
+        Created_At TIMESTAMP DEFAULT NOW(),
+        FOREIGN KEY(Follower_Id) REFERENCES Users(User_Id) ON DELETE CASCADE,
+        FOREIGN KEY(Followee_Id) REFERENCES Users(User_Id) ON DELETE CASCADE,
+        CONSTRAINT Can_Only_Follow_Once UNIQUE(Follower_Id, Followee_Id)
+    );
+DESC Follows;
+
+
 
 SHOW TABLES;
