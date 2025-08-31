@@ -127,4 +127,10 @@ JOIN Users AS U1 ON Follows.Follower_Id = U1.User_Id
 JOIN Users AS U2 ON Follows.Followee_Id = U2.User_Id
 LIMIT 5;
 
+SELECT Image_URL, Tag
+FROM Photo_Tags
+JOIN Photos ON Photo_Tags.Photo_Id = Photos.Photo_Id
+JOIN Tags   ON Photo_Tags.Tag_Id   = Tags.Tag_Id
+LIMIT 5;
+
 -- DROP DATABASE IF EXISTS Instagram;
