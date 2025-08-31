@@ -16,7 +16,7 @@ The Photos table must have the following columns:
 Photo_Id - Primary key to distinguish each photo entry from one another
 User_Id - Points to the User that uploaded the photo
 Image_URL
-The relationship between Users and Photos table will be one to many, a user can upload multiple photos on their account afterall.
+The relationship between Users and Photos table will be one to many, a user can upload multiple photos on their account after all.
 
 Comments:
 The comments table will have relationship with the above two table since its a user that comments and they are commenting on a photo/post written by another user
@@ -25,3 +25,17 @@ Comment_Text
 User_Id - User that posted that comment
 Photo_Id - Photo related to which the comment was posted
 
+Likes:
+Same as the comments, here we will need:
+User_Id - The user that liked the photo
+Photo_Id - The photo that was liked by the user
+we can put the constraint of Unique on User_Id, Photo_Id to make sure the same user cannot like the photo again and again
+
+Follows:
+This table keeps records of which user is following whom
+Follower_Id - The one who is following another user
+Followee_Id - The user to whom the follower is following
+
+Tags:
+To implement the concept of Tags that are applied to a photo we will have to use two table to store the tags and then another table that will works to create a relationship between 
+the Photos and the Tags table
